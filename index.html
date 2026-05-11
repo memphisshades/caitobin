@@ -56,6 +56,7 @@
   --bebas: 'Bebas Neue', sans-serif;
   --serif: 'DM Serif Display', Georgia, serif;
   --sans: 'Inter', sans-serif;
+  --gold: #f0c040;
 }
 
 html { scroll-behavior: smooth; }
@@ -736,6 +737,10 @@ nav a:hover { color: var(--navy); }
     background: var(--white);
     color: var(--navy);
   }
+  .hero-cta.hero-cta--dark {
+    background: var(--navy2);
+    color: var(--white);
+  }
   .hero-cta:hover { background: var(--red); color: var(--white); }
 }
 
@@ -1068,6 +1073,33 @@ footer {
 }
 .cfb-btn:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); }
 .cfb-btn.active { background: var(--gold); border-color: var(--gold); color: var(--navy); font-weight: 700; }
+
+@media (max-width: 600px) {
+  .cards-filter-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem 0.85rem;
+  }
+  .cfb-divider { display: none; }
+  .cfb-group {
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    align-items: center;
+  }
+  .cfb-label {
+    flex-shrink: 0;
+    min-width: 42px;
+    margin-right: 0.1rem;
+  }
+  .cfb-btn {
+    padding: 0.35rem 0.5rem;
+    font-size: 10.5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
 
 /* ── GROUPED DECK ── */
 .cards-group {
@@ -2448,7 +2480,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (CAI_CONFIG.showSocials) {
     heroCta.innerHTML =
       '<a href="'+CAI_CONFIG.instagram+'" target="_blank" class="hero-cta" style="gap:0.5rem;">'+igSVG+' Instagram</a>'+
-      '<a href="'+CAI_CONFIG.tiktok+'" target="_blank" class="hero-cta" style="gap:0.5rem;background:var(--navy2);">'+ttSVG+' TikTok</a>';
+      '<a href="'+CAI_CONFIG.tiktok+'" target="_blank" class="hero-cta hero-cta--dark" style="gap:0.5rem;">'+ttSVG+' TikTok</a>';
     footerLinks.innerHTML =
       '<a href="'+CAI_CONFIG.instagram+'" target="_blank" class="footer-name" style="text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=\'var(--navy)\'" onmouseout="this.style.color=\'var(--muted)\'">@caitobin</a>'+
       '<a href="'+CAI_CONFIG.tiktok+'" target="_blank" class="footer-name" style="text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=\'var(--navy)\'" onmouseout="this.style.color=\'var(--muted)\'">@cai_tobin</a>';

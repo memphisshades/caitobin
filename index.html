@@ -2267,8 +2267,10 @@ function caiBuildCard(m,i){
       '<div class="dc-score">'+m.score.toFixed(2)+'</div>'+
       '<div class="dc-event">'+m.event+'</div>'+
       '<div class="dc-rank '+caiRankClass(m.rankNum)+'">'+m.rank+'</div>'+
-      (m.national?'<div class="dc-national">Nationals</div>':'')+
-      (m.skills?'<div class="dc-national" style="background:var(--muted);color:var(--white);font-size:8px;">Skills</div>':'')+
+      '<div style="position:absolute;bottom:8px;right:8px;display:flex;flex-direction:column;align-items:flex-end;gap:3px;">'+
+        (m.national&&!m.skills?'<div class="dc-national" style="position:static;">NAGs</div>':'')+
+        (m.skills?'<div class="dc-national" style="position:static;background:var(--muted);color:var(--white);font-size:8px;">NS</div>':'')+
+      '</div>'+
     '</div>'+
     '<div class="dc-divider"></div>'+
     '<div class="dc-stats">'+

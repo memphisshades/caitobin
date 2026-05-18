@@ -594,26 +594,7 @@ nav a:hover { color: var(--navy); }
 
 /* play hint on hover */
 .discipline { cursor: pointer; }
-.disc-play-btn {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.15);
-  border: 2px solid rgba(255,255,255,0.5);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px; color: white;
-  z-index: 3;
-  transition: all 0.2s;
-  padding-left: 4px;
-  pointer-events: none;
-}
-.discipline:hover .disc-play-btn {
-  background: rgba(255,255,255,0.28);
-  border-color: white;
-  transform: translate(-50%, -50%) scale(1.1);
-}
+
 
 /* video lightbox */
 #vidOverlay {
@@ -1077,7 +1058,7 @@ footer {
 .cfb-btn:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); }
 .cfb-btn.active { background: var(--gold); border-color: var(--gold); color: var(--navy); font-weight: 700; }
 
-@media (max-width: 600px) {
+@media (max-width: 1100px) {
   .cards-filter-bar {
     flex-direction: column;
     align-items: flex-start;
@@ -1093,7 +1074,7 @@ footer {
   }
   .cfb-label {
     flex-shrink: 0;
-    min-width: 42px;
+    min-width: 54px;
     margin-right: 0.1rem;
   }
   .cfb-btn {
@@ -1571,25 +1552,22 @@ var CAI_CONFIG = {
 <!-- DISCIPLINES -->
 <section id="disciplines">
   <div class="discipline">
-    <video class="disc-video" src="assets/av/video2-small.mp4" loop playsinline muted preload="none"></video>
+    <video class="disc-video" src="assets/av/video2-small.mp4" loop playsinline muted autoplay></video>
     <div class="disc-overlay"></div>
     <div class="disc-name">Before the Board</div>
     <p class="disc-text">Wushu. Competitive swimming. Tumbling.</p>
-    <div class="disc-play-btn">▶</div>
   </div>
   <div class="discipline">
-    <video class="disc-video" src="assets/av/video1-small.mp4" loop playsinline muted preload="none"></video>
+    <video class="disc-video" src="assets/av/video1-small.mp4" loop playsinline muted autoplay></video>
     <div class="disc-overlay"></div>
     <div class="disc-name">Diving</div>
     <p class="disc-text">Springboard & Platform. 1m, 3m, 5m.</p>
-    <div class="disc-play-btn">▶</div>
   </div>
   <div class="discipline">
-    <video class="disc-video" src="assets/av/video3-small.mp4" loop playsinline muted preload="none"></video>
+    <video class="disc-video" src="assets/av/video3-small.mp4" loop playsinline muted autoplay></video>
     <div class="disc-overlay"></div>
     <div class="disc-name">Off the Board</div>
     <p class="disc-text">PS5. Football. Manchester United.</p>
-    <div class="disc-play-btn">▶</div>
   </div>
 </section>
 
@@ -1597,24 +1575,6 @@ var CAI_CONFIG = {
 (function() {
   document.querySelectorAll('.discipline').forEach(function(d) {
     var video = d.querySelector('.disc-video');
-    var btn   = d.querySelector('.disc-play-btn');
-    var playing = false;
-
-    d.addEventListener('click', function() {
-      if (!playing) {
-        video.play().then(function() {
-          playing = true;
-          d.classList.add('vid-playing');
-          btn.textContent = '❚❚';
-        }).catch(function(){});
-      } else {
-        video.pause();
-        playing = false;
-        d.classList.remove('vid-playing');
-        btn.textContent = '▶';
-      }
-    });
-
     video.addEventListener('canplay', function() {
       d.classList.add('vid-ready');
     });

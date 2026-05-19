@@ -1426,23 +1426,25 @@ footer {
   transition: all 0.2s;
   pointer-events: none;
   padding-left: 3px;
-}
-.discipline:hover .disc-play-hint {
-  background: rgba(255,255,255,0.25);
-  border-color: white;
-  color: white;
-  transform: translate(-50%, -50%) scale(1.1);
-}
-.discipline.vid-playing .disc-play-hint {
+  /* Hidden by default — only shown when autoplay is blocked (TV / click-to-play) */
   opacity: 0;
 }
 /* fade video in when playing */
 .discipline.vid-ready .disc-video { opacity: 1; }
 
-/* ── ANDROID TV OVERRIDES ── */
+/* ── ANDROID TV / AUTOPLAY-BLOCKED OVERRIDES ── */
 body.is-tv .disc-play-hint {
   opacity: 1;
   pointer-events: auto;
+}
+body.is-tv .discipline:hover .disc-play-hint {
+  background: rgba(255,255,255,0.25);
+  border-color: white;
+  color: white;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+body.is-tv .discipline.vid-playing .disc-play-hint {
+  opacity: 0;
 }
 body.is-tv .discipline:focus .disc-play-hint {
   background: rgba(255,255,255,0.3);
@@ -1594,14 +1596,14 @@ var CAI_CONFIG = {
 <!-- DISCIPLINES -->
 <section id="disciplines">
   <div class="discipline" tabindex="0">
-    <video class="disc-video" src="assets/av/video2-small.mp4" loop playsinline muted autoplay></video>
+    <video class="disc-video" src="assets/av/video2-small.mp4" loop playsinline muted></video>
     <div class="disc-overlay"></div>
     <div class="disc-play-hint">▶</div>
     <div class="disc-name">Before the Board</div>
     <p class="disc-text">Wushu. Competitive swimming. Tumbling.</p>
   </div>
   <div class="discipline" tabindex="0">
-    <video class="disc-video" src="assets/av/video3-small.mp4" loop playsinline muted autoplay></video>
+    <video class="disc-video" src="assets/av/video3-small.mp4" loop playsinline muted></video>
     <div class="disc-overlay"></div>
     <div class="disc-play-hint">▶</div>
     <div class="disc-name">Off the Board</div>
@@ -1625,13 +1627,29 @@ var CAI_CONFIG = {
   function startHero() {
     if (!heroVid) return;
     heroVid.muted = true;
-    heroVid.play().then(function() {
-      // Autoplay worked — make sure button stays hidden
+
+    // 'playing' fires when frames are actually rendering — the only reliable
+    // confirmation on iOS that autoplay succeeded (promise can resolve but
+    // the video still stays paused on iPhone 8 / iOS 12 in some states).
+    var heroPlaying = false;
+    heroVid.addEventListener('playing', function onPlaying() {
+      heroPlaying = true;
+      heroVid.removeEventListener('playing', onPlaying);
       if (heroPlayBtn) heroPlayBtn.style.display = 'none';
-    }).catch(function() {
-      // Autoplay blocked — show the click-to-play button
+    });
+
+    heroVid.play().catch(function() {
+      // Promise rejected — definitely blocked, show button immediately.
       if (heroPlayBtn) heroPlayBtn.style.display = 'flex';
     });
+
+    // Safety net: after 1.5s, if no 'playing' event fired the video isn't
+    // actually running — show the button regardless of promise outcome.
+    setTimeout(function() {
+      if (!heroPlaying && heroVid.paused && heroPlayBtn) {
+        heroPlayBtn.style.display = 'flex';
+      }
+    }, 1500);
   }
 
   // Clicking the overlay plays the video and hides the button
@@ -1700,30 +1718,57 @@ var CAI_CONFIG = {
     // ── Desktop / mobile ──
     startHero();
 
-    // Track which discipline videos successfully autoplayed via promises
-    // (fixes Safari triggering the TV fallback due to slow buffering)
-    var successCount = 0;
-    var settled = 0;
+    // Windows touch laptops report maxTouchPoints > 0 even when used with a mouse.
+    // Use pointer: coarse as the real mobile indicator — desktop mice are always "fine".
+    var isTouchDevice = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+    var tvModeEnabled = false;
+
+    function activateTVMode() {
+      if (tvModeEnabled || isTouchDevice) return;
+      tvModeEnabled = true;
+      enableTVMode();
+    }
+
+    // document.autoplayPolicy is supported in Chromium-based browsers (Chrome, Edge).
+    // 'allowed'         = autoplay will work, no need for fallback
+    // 'allowed-muted'   = muted autoplay works (our videos are muted, so fine)
+    // 'disallowed'      = autoplay blocked, show hints immediately — no waiting
+    var autoplayBlocked = (typeof document.autoplayPolicy === 'string') &&
+                          document.autoplayPolicy === 'disallowed';
+
+    if (!isTouchDevice && autoplayBlocked) {
+      activateTVMode();
+    }
 
     discVideos.forEach(function(v, i) {
       v.muted = true;
+
       v.addEventListener('canplay', function() {
         disciplines[i].classList.add('vid-ready');
       });
-      v.play().then(function() {
-        successCount++;
-        settled++;
+
+      // 'playing' = frames actually rendering — the only trustworthy signal
+      v.addEventListener('playing', function onPlaying() {
+        v.removeEventListener('playing', onPlaying);
+        disciplines[i].classList.add('vid-ready');
         disciplines[i].classList.add('vid-playing');
-        if (settled === discVideos.length && successCount < discVideos.length) {
-          enableTVMode();
-        }
-      }).catch(function() {
-        settled++;
-        if (settled === discVideos.length && successCount < discVideos.length) {
-          enableTVMode();
-        }
+      });
+
+      v.play().catch(function() {
+        // Promise rejected — definitely blocked
+        activateTVMode();
       });
     });
+
+    // Safety net: after 800ms, if no video is playing and TV mode isn't active yet,
+    // activate it. Catches Edge's silent-resolve-but-never-plays case.
+    if (!isTouchDevice && !autoplayBlocked) {
+      setTimeout(function() {
+        if (tvModeEnabled) return;
+        var anyPlaying = discVideos.some(function(v) { return !v.paused; });
+        if (!anyPlaying) activateTVMode();
+      }, 800);
+    }
   }
 })();
 </script>

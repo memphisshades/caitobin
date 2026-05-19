@@ -214,6 +214,29 @@ nav a:hover { color: var(--navy); }
   display: block;
 }
 
+/* click-to-play overlay — shown only when autoplay is blocked */
+.hero-play-btn {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(0,0,0,0.25);
+}
+.hero-play-btn svg {
+  width: 64px;
+  height: 64px;
+  fill: rgba(255,255,255,0.85);
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+  transition: transform 0.2s, fill 0.2s;
+}
+.hero-play-btn:hover svg {
+  transform: scale(1.1);
+  fill: white;
+}
+
 
 
 /* ── TICKER ── */
@@ -1473,6 +1496,9 @@ var CAI_CONFIG = {
 
     <div class="hero-photo-frame">
       <video src="assets/av/caidive.mp4" poster="assets/img/cai.jpg" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></video>
+      <div class="hero-play-btn" id="heroPlayBtn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+      </div>
       <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(15,31,61,0.55) 0%, rgba(15,31,61,0.15) 60%, transparent 100%), linear-gradient(to top, rgba(15,31,61,0.6) 0%, transparent 50%);pointer-events:none;z-index:3;"></div>
     </div>
 
@@ -1586,36 +1612,53 @@ var CAI_CONFIG = {
 <script>
 (function() {
   var heroVid = document.querySelector('.hero-photo-frame video');
+  var heroPlayBtn = document.getElementById('heroPlayBtn');
   var disciplines = Array.from(document.querySelectorAll('.discipline'));
   var discVideos = disciplines.map(function(d) { return d.querySelector('.disc-video'); });
 
   // ── TV detection ──
-  // 1. Known TV user agent strings (BRAVIA, WebOS, Tizen, etc.)
-  // 2. Fallback: Android + no touch (catches other Android TV boxes)
   var ua = navigator.userAgent;
   var isTV = /BRAVIA|SmartTV|SMART-TV|HbbTV|Tizen|WebOS|NETCAST|VIERA|Roku/i.test(ua) ||
              (/Android/i.test(ua) && !('ontouchstart' in window) && navigator.maxTouchPoints === 0);
 
+  // ── Hero play helper — shows click-to-play if autoplay blocked (Edge etc) ──
+  function startHero() {
+    if (!heroVid) return;
+    heroVid.muted = true;
+    heroVid.play().then(function() {
+      // Autoplay worked — make sure button stays hidden
+      if (heroPlayBtn) heroPlayBtn.style.display = 'none';
+    }).catch(function() {
+      // Autoplay blocked — show the click-to-play button
+      if (heroPlayBtn) heroPlayBtn.style.display = 'flex';
+    });
+  }
+
+  // Clicking the overlay plays the video and hides the button
+  if (heroPlayBtn) {
+    heroPlayBtn.addEventListener('click', function() {
+      heroVid.play().then(function() {
+        heroPlayBtn.style.display = 'none';
+      }).catch(function() {});
+    });
+  }
+
   function enableTVMode() {
     document.body.classList.add('is-tv');
-    // Pause and reset all discipline videos
     discVideos.forEach(function(v, i) {
       v.pause();
       disciplines[i].classList.remove('vid-playing');
     });
-    // Wire up click/D-pad handlers
     disciplines.forEach(function(d) {
-      if (d.dataset.tvWired) return; // don't double-wire
+      if (d.dataset.tvWired) return;
       d.dataset.tvWired = '1';
       d.addEventListener('click', function() {
         var video = d.querySelector('.disc-video');
         var wasPlaying = !video.paused;
-        // Pause all
         discVideos.forEach(function(v, i) {
           v.pause();
           disciplines[i].classList.remove('vid-playing');
         });
-        // Play this one unless it was already playing (toggle)
         if (!wasPlaying) {
           video.muted = true;
           video.play().then(function() {
@@ -1631,17 +1674,15 @@ var CAI_CONFIG = {
   }
 
   if (isTV) {
-    // Known TV — remove autoplay before videos start, hero plays alone
     discVideos.forEach(function(v) { v.removeAttribute('autoplay'); });
     enableTVMode();
 
-    // Play/pause hero based on visibility so scrolling back up resumes it
+    // IntersectionObserver — resume hero when scrolled back into view
     if (heroVid) {
       heroVid.muted = true;
       var heroObserver = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
-            // Pause any discipline video first, then play hero
             discVideos.forEach(function(v, i) {
               v.pause();
               disciplines[i].classList.remove('vid-playing');
@@ -1656,36 +1697,33 @@ var CAI_CONFIG = {
     }
 
   } else {
-    // Desktop / mobile — try simultaneous autoplay
-    if (heroVid) {
-      heroVid.muted = true;
-      heroVid.play().catch(function() {});
-    }
+    // ── Desktop / mobile ──
+    startHero();
 
-    var playCount = 0;
+    // Track which discipline videos successfully autoplayed via promises
+    // (fixes Safari triggering the TV fallback due to slow buffering)
+    var successCount = 0;
+    var settled = 0;
+
     discVideos.forEach(function(v, i) {
       v.muted = true;
       v.addEventListener('canplay', function() {
         disciplines[i].classList.add('vid-ready');
       });
       v.play().then(function() {
-        playCount++;
+        successCount++;
+        settled++;
         disciplines[i].classList.add('vid-playing');
+        if (settled === discVideos.length && successCount < discVideos.length) {
+          enableTVMode();
+        }
       }).catch(function() {
-        // This video couldn't autoplay
+        settled++;
+        if (settled === discVideos.length && successCount < discVideos.length) {
+          enableTVMode();
+        }
       });
     });
-
-    // Self-correcting fallback: if after 2s not all 3 are playing,
-    // assume we're on a TV-like device and switch to manual mode
-    setTimeout(function() {
-      var actuallyPlaying = discVideos.filter(function(v) {
-        return !v.paused && v.currentTime > 0;
-      }).length;
-      if (actuallyPlaying < discVideos.length) {
-        enableTVMode();
-      }
-    }, 2000);
   }
 })();
 </script>

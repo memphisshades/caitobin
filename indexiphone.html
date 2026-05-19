@@ -1732,29 +1732,40 @@ var CAI_CONFIG = {
       }
     }
 
+    // Track which videos are actually rendering frames — the only reliable signal
+    var playingCount = 0;
+
     discVideos.forEach(function(v, i) {
       v.muted = true;
+
+      // 'playing' fires when frames are actually rendering, same as hero
+      v.addEventListener('playing', function onPlaying() {
+        v.removeEventListener('playing', onPlaying);
+        playingCount++;
+        successCount++;
+        settled++;
+        disciplines[i].classList.add('vid-ready');
+        disciplines[i].classList.add('vid-playing');
+        if (settled === discVideos.length) checkEnableTV();
+      });
+
       v.addEventListener('canplay', function() {
         disciplines[i].classList.add('vid-ready');
       });
-      v.play().then(function() {
-        successCount++;
-        settled++;
-        disciplines[i].classList.add('vid-playing');
-        if (settled === discVideos.length) checkEnableTV();
-      }).catch(function() {
+
+      v.play().catch(function() {
+        // Promise rejected — definitely blocked
         settled++;
         if (settled === discVideos.length) checkEnableTV();
       });
     });
 
     // ── Safety net for Edge / browsers where play() promise never settles ──
-    // If after 1.5s any non-touch video still isn't playing, fall into TV mode.
+    // Only fall back to TV mode if no 'playing' event has fired at all after 1.5s.
     if (!isTouchDevice) {
       setTimeout(function() {
         if (tvModeEnabled) return;
-        var anyBlocked = discVideos.some(function(v) { return v.paused; });
-        if (anyBlocked) checkEnableTV();
+        if (playingCount === 0) checkEnableTV();
       }, 1500);
     }
   }

@@ -29,7 +29,7 @@
 <!-- Optional -->
 <meta name="theme-color" content="#000000" />
 
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -380,7 +380,7 @@ nav a:hover { color: var(--navy); }
 #disciplines {
   border-top: 1px solid var(--border);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 /* ── DIVING CAROUSEL ── */
@@ -1416,6 +1416,22 @@ footer {
 /* fade video in when playing */
 .discipline.vid-ready .disc-video { opacity: 1; }
 
+/* ── ANDROID TV OVERRIDES ── */
+body.is-tv .disc-play-hint {
+  opacity: 1;
+  pointer-events: auto;
+}
+body.is-tv .discipline:focus .disc-play-hint {
+  background: rgba(255,255,255,0.3);
+  border-color: white;
+  color: white;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+body.is-tv .discipline:focus {
+  outline: 2px solid rgba(255,255,255,0.4);
+  outline-offset: -2px;
+}
+
 </style>
 </head>
 <body>
@@ -1551,21 +1567,17 @@ var CAI_CONFIG = {
 
 <!-- DISCIPLINES -->
 <section id="disciplines">
-  <div class="discipline">
+  <div class="discipline" tabindex="0">
     <video class="disc-video" src="assets/av/video2-small.mp4" loop playsinline muted autoplay></video>
     <div class="disc-overlay"></div>
+    <div class="disc-play-hint">▶</div>
     <div class="disc-name">Before the Board</div>
     <p class="disc-text">Wushu. Competitive swimming. Tumbling.</p>
   </div>
-  <div class="discipline">
-    <video class="disc-video" src="assets/av/video1-small.mp4" loop playsinline muted autoplay></video>
-    <div class="disc-overlay"></div>
-    <div class="disc-name">Diving</div>
-    <p class="disc-text">Springboard & Platform. 1m, 3m, 5m.</p>
-  </div>
-  <div class="discipline">
+  <div class="discipline" tabindex="0">
     <video class="disc-video" src="assets/av/video3-small.mp4" loop playsinline muted autoplay></video>
     <div class="disc-overlay"></div>
+    <div class="disc-play-hint">▶</div>
     <div class="disc-name">Off the Board</div>
     <p class="disc-text">PS5. Football. Manchester United.</p>
   </div>
@@ -1573,12 +1585,108 @@ var CAI_CONFIG = {
 
 <script>
 (function() {
-  document.querySelectorAll('.discipline').forEach(function(d) {
-    var video = d.querySelector('.disc-video');
-    video.addEventListener('canplay', function() {
-      d.classList.add('vid-ready');
+  var heroVid = document.querySelector('.hero-photo-frame video');
+  var disciplines = Array.from(document.querySelectorAll('.discipline'));
+  var discVideos = disciplines.map(function(d) { return d.querySelector('.disc-video'); });
+
+  // ── TV detection ──
+  // 1. Known TV user agent strings (BRAVIA, WebOS, Tizen, etc.)
+  // 2. Fallback: Android + no touch (catches other Android TV boxes)
+  var ua = navigator.userAgent;
+  var isTV = /BRAVIA|SmartTV|SMART-TV|HbbTV|Tizen|WebOS|NETCAST|VIERA|Roku/i.test(ua) ||
+             (/Android/i.test(ua) && !('ontouchstart' in window) && navigator.maxTouchPoints === 0);
+
+  function enableTVMode() {
+    document.body.classList.add('is-tv');
+    // Pause and reset all discipline videos
+    discVideos.forEach(function(v, i) {
+      v.pause();
+      disciplines[i].classList.remove('vid-playing');
     });
-  });
+    // Wire up click/D-pad handlers
+    disciplines.forEach(function(d) {
+      if (d.dataset.tvWired) return; // don't double-wire
+      d.dataset.tvWired = '1';
+      d.addEventListener('click', function() {
+        var video = d.querySelector('.disc-video');
+        var wasPlaying = !video.paused;
+        // Pause all
+        discVideos.forEach(function(v, i) {
+          v.pause();
+          disciplines[i].classList.remove('vid-playing');
+        });
+        // Play this one unless it was already playing (toggle)
+        if (!wasPlaying) {
+          video.muted = true;
+          video.play().then(function() {
+            d.classList.add('vid-ready');
+            d.classList.add('vid-playing');
+          }).catch(function() {});
+        }
+      });
+      d.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.keyCode === 13) d.click();
+      });
+    });
+  }
+
+  if (isTV) {
+    // Known TV — remove autoplay before videos start, hero plays alone
+    discVideos.forEach(function(v) { v.removeAttribute('autoplay'); });
+    enableTVMode();
+
+    // Play/pause hero based on visibility so scrolling back up resumes it
+    if (heroVid) {
+      heroVid.muted = true;
+      var heroObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            // Pause any discipline video first, then play hero
+            discVideos.forEach(function(v, i) {
+              v.pause();
+              disciplines[i].classList.remove('vid-playing');
+            });
+            heroVid.play().catch(function() {});
+          } else {
+            heroVid.pause();
+          }
+        });
+      }, { threshold: 0.3 });
+      heroObserver.observe(document.getElementById('hero'));
+    }
+
+  } else {
+    // Desktop / mobile — try simultaneous autoplay
+    if (heroVid) {
+      heroVid.muted = true;
+      heroVid.play().catch(function() {});
+    }
+
+    var playCount = 0;
+    discVideos.forEach(function(v, i) {
+      v.muted = true;
+      v.addEventListener('canplay', function() {
+        disciplines[i].classList.add('vid-ready');
+      });
+      v.play().then(function() {
+        playCount++;
+        disciplines[i].classList.add('vid-playing');
+      }).catch(function() {
+        // This video couldn't autoplay
+      });
+    });
+
+    // Self-correcting fallback: if after 2s not all 3 are playing,
+    // assume we're on a TV-like device and switch to manual mode
+    setTimeout(function() {
+      var actuallyPlaying = discVideos.filter(function(v) {
+        return !v.paused && v.currentTime > 0;
+      }).length;
+      if (actuallyPlaying < discVideos.length) {
+        enableTVMode();
+      }
+    }, 2000);
+  }
 })();
 </script>
 

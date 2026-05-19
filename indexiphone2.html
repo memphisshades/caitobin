@@ -1,0 +1,2701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Basic -->
+<title>Cai Tobin</title>
+<meta name="description" content="Official links for Cai Tobin." />
+
+<!-- Open Graph (Facebook, LinkedIn, iMessage, etc.) -->
+<meta property="og:title" content="Cai Tobin" />
+<meta property="og:description" content="Official links for Cai Tobin." />
+<meta property="og:image" content="https://caitobin.com/og-image.jpg" />
+<meta property="og:url" content="https://caitobin.com" />
+<meta property="og:type" content="website" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Cai Tobin" />
+<meta name="twitter:description" content="Official links for Cai Tobin." />
+<meta name="twitter:image" content="https://caitobin.com/twitter-image.jpg" />
+
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+
+<!-- Optional -->
+<meta name="theme-color" content="#000000" />
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Cai Tobin",
+  "url": "https://caitobin.com",
+  "sameAs": [
+    "https://instagram.com/caitobin",
+    "https://tiktok.com/@cai_tobin"
+  ]
+}
+</script>
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0f1f3d;
+  --navy2: #1a3260;
+  --navy-light: #243b6e;
+  --white: #ffffff;
+  --off: #f4f5f7;
+  --off2: #eaecf0;
+  --red: #d63c2a;
+  --muted: #6b7a99;
+  --muted2: #9aa5bf;
+  --border: #dde1ea;
+  --border-navy: rgba(255,255,255,0.1);
+  --bebas: 'Bebas Neue', sans-serif;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'Inter', sans-serif;
+  --gold: #f0c040;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--white);
+  color: var(--navy);
+  font-family: var(--sans);
+  overflow-x: hidden;
+}
+
+/* ── HEADER ── */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.5rem;
+  height: 64px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: var(--bebas);
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  color: var(--navy);
+  text-decoration: none;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.logo span { color: var(--red); }
+
+nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+nav a {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 1.8rem;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--navy); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 0;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 2.5rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  background: var(--navy);
+}
+
+.hero-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 1.5rem;
+}
+
+.hero-name {
+  font-family: var(--bebas);
+  font-size: clamp(80px, 11vw, 150px);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  margin-bottom: 2.5rem;
+}
+.hero-name .first { display: block; color: var(--white); }
+.hero-name .last  { display: block; color: var(--red); }
+
+.hero-desc {
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.5);
+  max-width: 380px;
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+.hero-desc strong { color: var(--white); font-weight: 500; }
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--navy);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.hero-cta:hover { background: var(--red); }
+.hero-cta::after { content: '→'; }
+
+.hero-right {
+  position: relative;
+  background: var(--navy);
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.hero-watermark {
+  position: absolute;
+  font-family: var(--bebas);
+  font-size: 26vw;
+  color: rgba(255,255,255,0.03);
+  letter-spacing: -0.02em;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-photo-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.hero-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* click-to-play overlay — shown only when autoplay is blocked */
+.hero-play-btn {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(0,0,0,0.25);
+}
+.hero-play-btn svg {
+  width: 64px;
+  height: 64px;
+  fill: rgba(255,255,255,0.85);
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+  transition: transform 0.2s, fill 0.2s;
+}
+.hero-play-btn:hover svg {
+  transform: scale(1.1);
+  fill: white;
+}
+
+
+
+/* ── TICKER ── */
+.ticker-wrap {
+  overflow: hidden;
+  padding: 0.85rem 0;
+  background: var(--navy);
+  border-bottom: 3px solid var(--red);
+}
+
+.ticker-track {
+  display: flex;
+  animation: tick 22s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker-item {
+  font-family: var(--bebas);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.7);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.ticker-item::after { content: '✦'; font-size: 7px; opacity: 0.4; }
+
+@keyframes tick {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ── ORIGIN ── */
+#origin {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  border-top: 1px solid var(--border);
+}
+
+.origin-sidebar {
+  padding: 3.5rem 2rem;
+  border-right: 1px solid var(--border);
+  background: var(--off);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.section-num {
+  font-family: var(--bebas);
+  font-size: 72px;
+  color: var(--off2);
+  line-height: 1;
+}
+
+.section-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.origin-body { padding: 3.5rem 3rem; }
+
+.origin-headline {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3.5vw, 42px);
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--navy);
+  margin-bottom: 2.5rem;
+}
+
+.origin-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.origin-chapter {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  background: var(--white);
+  position: relative;
+}
+
+.origin-chapter::before {
+  content: attr(data-place);
+  position: absolute;
+  top: -1px; left: 1.2rem;
+  background: var(--white);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red);
+  padding: 0 0.4rem;
+  transform: translateY(-50%);
+}
+
+.origin-chapter h3 {
+  font-family: var(--bebas);
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.6rem;
+  color: var(--navy);
+}
+
+.origin-chapter p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+/* ── PULLQUOTE ── */
+#moment {
+  background: var(--navy);
+  padding: 6rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.moment-bg {
+  position: absolute;
+  font-family: var(--bebas);
+  font-size: clamp(100px, 18vw, 220px);
+  color: rgba(255,255,255,0.025);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+.moment-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.moment-quote {
+  font-family: var(--serif);
+  font-size: clamp(22px, 3.5vw, 38px);
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.moment-attr {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+/* ── TWO BLOCKS (Before/Off the Board) ── */
+#disciplines {
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ── DIVING CAROUSEL ── */
+#diving-carousel {
+  position: relative;
+  border-top: 1px solid var(--border);
+  background: var(--navy);
+  overflow: hidden;
+  /* height driven by actual video aspect ratio via JS below */
+}
+
+.dc-track-wrap {
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+}
+
+.dc-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.45s cubic-bezier(0.22,1,0.36,1);
+  will-change: transform;
+}
+
+.dc-slide {
+  flex: 0 0 calc(100% / 3);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+.dc-slide:last-child { border-right: none; }
+
+.dc-slide video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  transform: scale(1.9);  /* zooms in to crop the pillarbox black bars */
+}
+.dc-slide.vid-ready video { opacity: 1; }
+
+.dc-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,20,45,0.65) 0%, rgba(10,20,45,0.1) 60%);
+  z-index: 1;
+}
+
+/* centre panel label */
+.dc-centre-label {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.dc-centre-label .disc-name  { font-family: var(--bebas); font-size: 38px; letter-spacing: 0.04em; line-height: 1; color: var(--white); }
+.dc-centre-label .disc-text  { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.6); font-weight: 300; }
+
+/* play hint */
+.dc-play-hint {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,255,255,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  color: rgba(255,255,255,0.8);
+  z-index: 3;
+  transition: all 0.2s;
+  padding-left: 3px;
+  pointer-events: none;
+}
+.dc-slide:hover .dc-play-hint {
+  background: rgba(255,255,255,0.25);
+  border-color: white;
+  color: white;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.dc-slide.vid-playing .dc-play-hint { opacity: 0; }
+
+/* clip number badge */
+.dc-badge {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  font-family: var(--bebas);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.35);
+  z-index: 2;
+}
+
+/* arrow buttons */
+.dc-arrow {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(15,31,61,0.7);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--white);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  line-height: 1;
+}
+.dc-arrow:hover { background: var(--red); border-color: var(--red); }
+.dc-arrow.dc-prev { left: 1rem; }
+.dc-arrow.dc-next { right: 1rem; }
+.dc-arrow:disabled { opacity: 0.25; cursor: default; }
+.dc-arrow:disabled:hover { background: rgba(15,31,61,0.7); border-color: rgba(255,255,255,0.15); }
+
+/* dots */
+.dc-dots {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+.dc-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  transition: background 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+.dc-dot.active { background: var(--white); transform: scale(1.35); }
+
+@media (max-width: 700px) {
+  .dc-slide { flex: 0 0 100%; }
+  .dc-arrow { display: none; }
+}
+
+.discipline {
+  padding: 3.5rem 2.5rem;
+  border-right: 1px solid var(--border);
+  background: var(--navy);
+  transition: background 0.25s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  justify-content: flex-end;
+  background-color: #0f1f3d;
+}
+.discipline:last-child { border-right: none; }
+
+.disc-video {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  z-index: 0;
+}
+
+/* Portrait video — display as-is */
+.discipline--portrait {
+  min-height: 300px;
+  padding: 0;
+  background-size: cover;
+  background-position: center center;
+}
+.discipline--portrait .disc-video {
+  position: relative;
+  top: unset; left: unset;
+  transform: none;
+  width: 100%;
+  height: 400px;
+  min-width: unset;
+  min-height: unset;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.discipline--portrait .disc-overlay {
+  position: absolute;
+  inset: 0;
+}
+.discipline--portrait .disc-name,
+.discipline--portrait .disc-text {
+  position: relative;
+  z-index: 2;
+}
+.discipline.vid-ready .disc-video { opacity: 1; }
+
+/* play hint on hover */
+.discipline { cursor: pointer; }
+
+
+/* video lightbox */
+#vidOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0,0,0,0.92);
+  align-items: center;
+  justify-content: center;
+}
+#vidOverlay.open { display: flex; }
+#vidOverlay video {
+  max-width: 90vw;
+  max-height: 90vh;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  #vidOverlay video {
+    width: 100vw;
+    height: 100dvh;
+    max-width: 100vw;
+    max-height: 100dvh;
+    object-fit: contain;
+  }
+  #vidOverlayClose {
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 36px;
+    opacity: 1;
+    z-index: 1000;
+  }
+}
+#vidOverlayClose {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+#vidOverlayClose:hover { opacity: 1; }
+
+.disc-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,20,45,0.55) 0%, rgba(10,20,45,0.15) 100%);
+  z-index: 1;
+}
+
+.disc-name {
+  font-family: var(--bebas);
+  font-size: 38px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 1rem;
+  color: var(--white);
+  position: relative;
+  z-index: 2;
+}
+
+.disc-text {
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 700px) {
+  #disciplines { grid-template-columns: 1fr; }
+  .discipline { border-right: none; border-bottom: 1px solid var(--border); }
+  .discipline:last-child { border-bottom: none; }
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+  #hero {
+    display: block;
+    position: relative;
+    min-height: 100vh;
+  }
+
+  /* Photo fills the entire hero */
+  .hero-right {
+    position: absolute;
+    inset: 0;
+    min-height: unset;
+  }
+
+  /* Dark overlay so text is legible */
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(15,31,61,0.82) 0%, rgba(15,31,61,0.35) 100%);
+    z-index: 3;
+  }
+
+  /* Text content over the photo */
+  .hero-left {
+    position: relative;
+    z-index: 4;
+    border-right: none;
+    background: transparent;
+    padding: 3rem 1.5rem 2.5rem;
+    min-height: 100vh;
+    justify-content: flex-end;
+  }
+
+  .hero-tag { color: rgba(255,255,255,0.7); }
+
+  .hero-name { font-size: clamp(96px, 28vw, 140px); }
+  .hero-name .first { color: var(--white); }
+
+  .hero-desc { color: rgba(255,255,255,0.65); }
+
+  .hero-cta {
+    background: var(--white);
+    color: var(--navy);
+  }
+  .hero-cta.hero-cta--dark {
+    background: var(--navy2);
+    color: var(--white);
+  }
+  .hero-cta:hover { background: var(--red); color: var(--white); }
+}
+
+/* ── CONTACT ── */
+#contact {
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.contact-left {
+  padding: 5rem 2.5rem;
+  border-right: 1px solid var(--border);
+  background: var(--white);
+}
+
+.contact-left h2 {
+  font-family: var(--bebas);
+  font-size: clamp(52px, 8vw, 96px);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+}
+.contact-left h2 em { display: block; color: var(--red); font-style: normal; }
+
+.contact-left p {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--muted);
+  max-width: 320px;
+  font-weight: 300;
+}
+
+.contact-right {
+  padding: 5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  background: var(--white);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--navy);
+  transition: padding-left 0.25s;
+}
+.contact-item:first-child { border-top: 1px solid var(--border); }
+.contact-item:hover { padding-left: 0.6rem; }
+
+.ci-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ci-value {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--navy);
+}
+
+.ci-arrow {
+  color: var(--red);
+  font-size: 14px;
+  transition: transform 0.2s;
+}
+.contact-item:hover .ci-arrow { transform: translateX(4px); }
+
+/* ── FOOTER ── */
+footer {
+  padding: 1.5rem 2.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--off);
+}
+
+.footer-name {
+  font-family: var(--bebas);
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+
+.footer-note {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--muted2);
+  text-transform: uppercase;
+}
+
+/* ── RESULTS ── */
+#results {
+  border-top: 1px solid var(--border);
+}
+
+.results-pbs {
+  padding: 4rem 2.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.results-pbs .section-label { color: rgba(255,255,255,0.45); }
+.results-pbs .pb-sub { text-align: center; }
+
+.pb-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  width: 100%;
+  max-width: 860px;
+}
+
+.pb-sub {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 3rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.pb-card {
+  background: var(--navy);
+  padding: 2rem 1.5rem;
+}
+
+.pb-event {
+  font-family: var(--bebas);
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.pb-scores { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.pb-score {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.pb-num {
+  font-family: var(--bebas);
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.45);
+}
+
+.pb-score--top .pb-num {
+  font-size: 36px;
+  color: var(--white);
+}
+
+.pb-dives {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+.pb-score--top .pb-dives { color: var(--red); }
+
+/* timeline */
+.results-timeline {
+  padding: 4rem 2.5rem;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.results-timeline .section-label { color: var(--red); width: 100%; max-width: 640px; text-align: center; }
+
+.timeline {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 0;
+  align-items: start;
+  width: 100%;
+  max-width: 640px;
+}
+
+.tl-year {
+  font-family: var(--bebas);
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  color: var(--muted2);
+  padding-top: 0.2rem;
+  grid-column: 1;
+  position: sticky;
+  top: 0;
+}
+
+.tl-meet {
+  grid-column: 2;
+  padding: 0.6rem 0 0.6rem 1.5rem;
+  border-left: 1px solid var(--border);
+  margin-bottom: 0.25rem;
+}
+
+.tl-year + .tl-meet {
+  padding-top: 0.2rem;
+}
+
+.tl-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 0.2rem;
+}
+
+.tl-events {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.tl-national { color: var(--red); font-weight: 500; }
+
+@media (max-width: 700px) {
+  .pb-grid { grid-template-columns: 1fr; }
+  .pb-card { padding: 1.5rem; }
+}
+
+
+/* ── DIVE CARDS ── */
+#cards {
+  border-top: 1px solid var(--border);
+  background: var(--navy);
+  padding: 4rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#cards .section-label {
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 0.5rem;
+  align-self: center;
+}
+
+#cards .section-sublabel {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.cards-deck {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* ── FILTER BAR ── */
+.cards-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.cfb-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.cfb-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  font-weight: 500;
+  margin-right: 0.25rem;
+}
+
+.cfb-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255,255,255,0.1);
+  margin: 0 0.25rem;
+}
+
+.cfb-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.45);
+  font-size: 11px;
+  font-family: var(--inter);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.cfb-btn:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); }
+.cfb-btn.active { background: var(--gold); border-color: var(--gold); color: var(--navy); font-weight: 700; }
+
+@media (max-width: 1100px) {
+  .cards-filter-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem 0.85rem;
+  }
+  .cfb-divider { display: none; }
+  .cfb-group {
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    align-items: center;
+  }
+  .cfb-label {
+    flex-shrink: 0;
+    min-width: 54px;
+    margin-right: 0.1rem;
+  }
+  .cfb-btn {
+    padding: 0.35rem 0.5rem;
+    font-size: 10.5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+/* ── GROUPED DECK ── */
+.cards-group {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 2.5rem;
+}
+.cards-group-label {
+  font-family: var(--bebas);
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.25);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.cards-group .cards-deck { max-width: none; }
+
+.dive-card {
+  width: 180px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 0.5px solid rgba(255,255,255,0.1);
+  background: var(--navy2);
+  transition: transform 0.2s;
+  font-family: var(--bebas);
+  position: relative;
+  flex-shrink: 0;
+}
+.dive-card:hover { transform: translateY(-4px); }
+
+.dc-top {
+  padding: 12px 12px 6px;
+  position: relative;
+  background: var(--navy2);
+}
+
+.dc-score {
+  font-size: 38px;
+  line-height: 1;
+  color: #f0c040;
+  letter-spacing: 0.02em;
+}
+
+.dc-event {
+  font-size: 10px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.15em;
+  margin-top: 2px;
+  text-transform: uppercase;
+  font-family: var(--sans);
+  font-weight: 500;
+}
+
+.dc-rank {
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+  font-family: var(--bebas);
+}
+.dc-rank.r1 { background: #f0c040; color: var(--navy); }
+.dc-rank.r2 { background: #b0b8c8; color: var(--navy); }
+.dc-rank.r3 { background: #cd7f32; color: #fff; }
+.dc-rank.rn { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); }
+
+.dc-national {
+  position: absolute;
+  bottom: 8px; right: 8px;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: var(--red);
+  font-family: var(--sans);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.dc-divider { height: 2px; background: var(--red); }
+
+.dc-stats {
+  padding: 7px 10px 4px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 3px;
+}
+.dc-stat { text-align: center; }
+.dc-stat-val { font-size: 16px; color: #fff; line-height: 1; }
+.dc-stat-lbl { font-size: 8px; color: rgba(255,255,255,0.35); letter-spacing: 0.12em; font-family: var(--sans); font-weight: 500; text-transform: uppercase; margin-top: 1px; }
+
+.dc-name-bar {
+  padding: 5px 10px 8px;
+  border-top: 0.5px solid rgba(255,255,255,0.07);
+}
+.dc-name { font-size: 17px; color: #fff; letter-spacing: 0.06em; line-height: 1; }
+.dc-club { font-size: 8px; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; font-family: var(--sans); font-weight: 500; text-transform: uppercase; margin-top: 1px; }
+
+.dc-meet {
+  padding: 5px 10px 9px;
+  border-top: 0.5px solid rgba(255,255,255,0.07);
+  font-size: 8px;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.1em;
+  font-family: var(--sans);
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+/* Modal */
+.cards-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+}
+.cards-overlay.open { display: flex; }
+
+.cards-modal {
+  background: var(--navy);
+  border-radius: 14px;
+  width: 340px;
+  max-height: 85vh;
+  overflow-y: auto;
+  border: 0.5px solid rgba(255,255,255,0.12);
+  font-family: var(--sans);
+}
+
+.cm-header {
+  padding: 16px 16px 12px;
+  border-bottom: 2px solid var(--red);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.cm-score { font-family: var(--bebas); font-size: 48px; color: #f0c040; line-height: 1; }
+.cm-event { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 2px; }
+.cm-meet { font-size: 10px; color: rgba(255,255,255,0.25); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; line-height: 1.5; }
+.cm-national { font-size: 9px; color: var(--red); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; margin-top: 4px; }
+.cm-rank-lbl { font-size: 9px; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; text-align: right; }
+.cm-rank-val { font-family: var(--bebas); font-size: 28px; color: #f0c040; text-align: right; }
+.cm-close { background: rgba(255,255,255,0.1); border: none; color: #fff; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+
+.cm-body { padding: 12px 16px 16px; }
+.cm-table { width: 100%; border-collapse: collapse; font-size: 11px; color: rgba(255,255,255,0.7); }
+.cm-table th { color: rgba(255,255,255,0.3); font-weight: 500; text-align: left; padding: 3px 4px; border-bottom: 0.5px solid rgba(255,255,255,0.1); font-size: 10px; letter-spacing: 0.06em; }
+.cm-table td { padding: 4px; border-bottom: 0.5px solid rgba(255,255,255,0.05); }
+
+@media (max-width: 700px) {
+  #cards { padding: 3rem 1.5rem; }
+  .cards-deck { gap: 12px; }
+  .dive-card { width: 150px; }
+  .dc-score { font-size: 30px; }
+}
+
+
+.tl-has-cards {
+  cursor: pointer;
+  transition: padding-left 0.2s;
+}
+.tl-has-cards:hover { padding-left: 2rem; }
+.tl-has-cards:hover .tl-name { color: var(--red); }
+.tl-card-hint {
+  font-size: 10px;
+  color: var(--red);
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-family: var(--sans);
+}
+.tl-has-cards:hover .tl-card-hint { opacity: 1; }
+
+.dive-card.dc-highlight {
+  outline: 2px solid #f0c040;
+  transform: translateY(-6px);
+}
+
+
+/* ── STAT BAR ── */
+#statbar {
+  background: var(--navy);
+  border-top: 3px solid var(--red);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+#statbar::-webkit-scrollbar { display: none; }
+
+@media (max-width: 900px) {
+  #statbar { justify-content: flex-start; }
+}
+
+.sb-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2.5rem;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+}
+.sb-item:last-child { border-right: none; }
+
+.sb-num {
+  font-family: var(--bebas);
+  font-size: 48px;
+  line-height: 1;
+  color: #f0c040;
+  letter-spacing: 0.04em;
+}
+
+.sb-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+.sb-divider {
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  color: var(--red);
+  font-size: 8px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  #statbar-wrap { position: relative; }
+  #statbar-wrap::before,
+  #statbar-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 48px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  #statbar-wrap::before { left: 0; background: linear-gradient(to right, var(--navy), transparent); }
+  #statbar-wrap::after  { right: 0; background: linear-gradient(to left,  var(--navy), transparent); }
+
+  #statbar {
+    padding: 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .sb-item {
+    scroll-snap-align: center;
+    min-width: 50vw;
+    padding: 1.5rem 1.25rem;
+  }
+  .sb-num { font-size: 36px; }
+  .sb-divider { padding: 0 0.5rem; flex-shrink: 0; }
+}
+
+/* ── ANIMATIONS ── */
+
+/* Hero load-in */
+@keyframes caiSlideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes caiFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hero-animate { opacity: 0; }
+.hero-animate.ran { animation: caiSlideUp 0.6s cubic-bezier(0.22,1,0.36,1) forwards; }
+
+/* Scroll fade-up */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered cards */
+.dive-card {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s cubic-bezier(0.22,1,0.36,1), transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.2s, border-color 0.2s;
+}
+.dive-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Play hint overlay */
+.disc-play-hint {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,255,255,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  color: rgba(255,255,255,0.8);
+  z-index: 3;
+  transition: all 0.2s;
+  pointer-events: none;
+  padding-left: 3px;
+  /* Hidden by default — only shown when autoplay is blocked (TV / click-to-play) */
+  opacity: 0;
+}
+/* fade video in when playing */
+.discipline.vid-ready .disc-video { opacity: 1; }
+
+/* ── ANDROID TV / AUTOPLAY-BLOCKED OVERRIDES ── */
+body.is-tv .disc-play-hint {
+  opacity: 1;
+  pointer-events: auto;
+}
+body.is-tv .discipline:hover .disc-play-hint {
+  background: rgba(255,255,255,0.25);
+  border-color: white;
+  color: white;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+body.is-tv .discipline.vid-playing .disc-play-hint {
+  opacity: 0;
+}
+body.is-tv .discipline:focus .disc-play-hint {
+  background: rgba(255,255,255,0.3);
+  border-color: white;
+  color: white;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+body.is-tv .discipline:focus {
+  outline: 2px solid rgba(255,255,255,0.4);
+  outline-offset: -2px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     OWNER SETTINGS — edit these lines only
+     ════════════════════════════════════════ -->
+<script>
+var CAI_CONFIG = {
+  showSocials: true,
+  instagram: 'https://instagram.com/caitobin',
+  tiktok:    'https://tiktok.com/@cai_tobin',
+  email:     'cai@caitobin.com'
+};
+</script>
+<!-- ════════════════════════════════════════ -->
+
+<!-- HEADER hidden until more sections added
+<header>
+  <a href="#" class="logo">CAI <span>TOBIN</span></a>
+
+</header>
+-->
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-tag hero-animate" style="animation-delay:0.1s">Springboard & Platform Diver</div>
+    <h1 class="hero-name hero-animate" style="animation-delay:0.22s">
+      <span class="first">CAI</span>
+      <span class="last">TOBIN</span>
+    </h1>
+    
+    <div id="heroCta" class="hero-animate" style="display:flex;gap:0.75rem;flex-wrap:wrap;animation-delay:0.38s"></div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-watermark">CAI</div>
+
+    <div class="hero-photo-frame">
+      <video src="assets/av/caidive.mp4" poster="assets/img/cai.jpg" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></video>
+      <div class="hero-play-btn" id="heroPlayBtn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(15,31,61,0.55) 0%, rgba(15,31,61,0.15) 60%, transparent 100%), linear-gradient(to top, rgba(15,31,61,0.6) 0%, transparent 50%);pointer-events:none;z-index:3;"></div>
+    </div>
+
+
+  </div>
+</section>
+
+
+
+<!-- STAT BAR -->
+<div id="statbar-wrap">
+<section id="statbar">
+  <div class="sb-item hero-animate" style="animation-delay:0.55s">
+    <div class="sb-num">3×</div>
+    <div class="sb-label">Regional Champion</div>
+  </div>
+  <div class="sb-divider hero-animate" style="animation-delay:0.68s">✦</div>
+  <div class="sb-item hero-animate" style="animation-delay:0.78s">
+    <div class="sb-num">3rd</div>
+    <div class="sb-label">Nationals 1m 2025</div>
+  </div>
+  <div class="sb-divider hero-animate" style="animation-delay:0.91s">✦</div>
+  <div class="sb-item hero-animate" style="animation-delay:1.01s">
+    <div class="sb-num">2nd</div>
+    <div class="sb-label">Nationals Platform 2024</div>
+  </div>
+  <div class="sb-divider hero-animate" style="animation-delay:1.14s">✦</div>
+  <div class="sb-item hero-animate" style="animation-delay:1.24s">
+    <div class="sb-num">205</div>
+    <div class="sb-label">PB · 3m Springboard</div>
+  </div>
+  <div class="sb-divider hero-animate" style="animation-delay:1.37s">✦</div>
+  <div class="sb-item hero-animate" style="animation-delay:1.47s">
+    <div class="sb-num">7+</div>
+    <div class="sb-label">Years Competing</div>
+  </div>
+</section>
+</div>
+
+<script>
+(function() {
+  var bar = document.getElementById('statbar');
+  var items = Array.from(bar.querySelectorAll('.sb-item'));
+  var current = 0;
+  var timer = null;
+  var touching = false;
+
+  function scrollToItem(idx) {
+    var item = items[idx];
+    var target = item.offsetLeft - (bar.offsetWidth / 2) + (item.offsetWidth / 2);
+    bar.scrollTo({ left: target, behavior: 'smooth' });
+  }
+
+  function next() {
+    if (touching) return;
+    current = (current + 1) % items.length;
+    scrollToItem(current);
+  }
+
+  function startAuto() {
+    clearInterval(timer);
+    timer = setInterval(next, 2200);
+  }
+
+  bar.addEventListener('touchstart', function() {
+    touching = true;
+    clearInterval(timer);
+  }, { passive: true });
+
+  bar.addEventListener('touchend', function() {
+    touching = false;
+    setTimeout(startAuto, 2000);
+  }, { passive: true });
+
+  function checkAndStart() {
+    if (window.innerWidth <= 900) {
+      if (!timer) startAuto();
+    } else {
+      clearInterval(timer);
+      timer = null;
+      bar.scrollTo({ left: 0 });
+    }
+  }
+
+  checkAndStart();
+  window.addEventListener('resize', checkAndStart);
+})();
+</script>
+
+
+
+
+<!-- DISCIPLINES -->
+<section id="disciplines">
+  <div class="discipline" tabindex="0">
+    <video class="disc-video" src="assets/av/video2-small.mp4" loop playsinline muted autoplay></video>
+    <div class="disc-overlay"></div>
+    <div class="disc-play-hint">▶</div>
+    <div class="disc-name">Before the Board</div>
+    <p class="disc-text">Wushu. Competitive swimming. Tumbling.</p>
+  </div>
+  <div class="discipline" tabindex="0">
+    <video class="disc-video" src="assets/av/video3-small.mp4" loop playsinline muted autoplay></video>
+    <div class="disc-overlay"></div>
+    <div class="disc-play-hint">▶</div>
+    <div class="disc-name">Off the Board</div>
+    <p class="disc-text">PS5. Football. Manchester United.</p>
+  </div>
+</section>
+
+<script>
+(function() {
+  var heroVid = document.querySelector('.hero-photo-frame video');
+  var heroPlayBtn = document.getElementById('heroPlayBtn');
+  var disciplines = Array.from(document.querySelectorAll('.discipline'));
+  var discVideos = disciplines.map(function(d) { return d.querySelector('.disc-video'); });
+
+  // ── TV detection ──
+  var ua = navigator.userAgent;
+  var isTV = /BRAVIA|SmartTV|SMART-TV|HbbTV|Tizen|WebOS|NETCAST|VIERA|Roku/i.test(ua) ||
+             (/Android/i.test(ua) && !('ontouchstart' in window) && navigator.maxTouchPoints === 0);
+
+  // ── Hero play helper — shows click-to-play if autoplay blocked (Edge etc) ──
+  function startHero() {
+    if (!heroVid) return;
+    heroVid.muted = true;
+
+    // 'playing' fires when frames are actually rendering — the only reliable
+    // confirmation on iOS that autoplay succeeded (promise can resolve but
+    // the video still stays paused on iPhone 8 / iOS 12 in some states).
+    var heroPlaying = false;
+    heroVid.addEventListener('playing', function onPlaying() {
+      heroPlaying = true;
+      heroVid.removeEventListener('playing', onPlaying);
+      if (heroPlayBtn) heroPlayBtn.style.display = 'none';
+    });
+
+    heroVid.play().catch(function() {
+      // Promise rejected — definitely blocked, show button immediately.
+      if (heroPlayBtn) heroPlayBtn.style.display = 'flex';
+    });
+
+    // Safety net: after 1.5s, if no 'playing' event fired the video isn't
+    // actually running — show the button regardless of promise outcome.
+    setTimeout(function() {
+      if (!heroPlaying && heroVid.paused && heroPlayBtn) {
+        heroPlayBtn.style.display = 'flex';
+      }
+    }, 1500);
+  }
+
+  // Clicking the overlay plays the video and hides the button
+  if (heroPlayBtn) {
+    heroPlayBtn.addEventListener('click', function() {
+      heroVid.play().then(function() {
+        heroPlayBtn.style.display = 'none';
+      }).catch(function() {});
+    });
+  }
+
+  function enableTVMode() {
+    document.body.classList.add('is-tv');
+    discVideos.forEach(function(v, i) {
+      v.pause();
+      disciplines[i].classList.remove('vid-playing');
+    });
+    disciplines.forEach(function(d) {
+      if (d.dataset.tvWired) return;
+      d.dataset.tvWired = '1';
+      d.addEventListener('click', function() {
+        var video = d.querySelector('.disc-video');
+        var wasPlaying = !video.paused;
+        discVideos.forEach(function(v, i) {
+          v.pause();
+          disciplines[i].classList.remove('vid-playing');
+        });
+        if (!wasPlaying) {
+          video.muted = true;
+          video.play().then(function() {
+            d.classList.add('vid-ready');
+            d.classList.add('vid-playing');
+          }).catch(function() {});
+        }
+      });
+      d.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.keyCode === 13) d.click();
+      });
+    });
+  }
+
+  if (isTV) {
+    discVideos.forEach(function(v) { v.removeAttribute('autoplay'); });
+    enableTVMode();
+
+    // IntersectionObserver — resume hero when scrolled back into view
+    if (heroVid) {
+      heroVid.muted = true;
+      var heroObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            discVideos.forEach(function(v, i) {
+              v.pause();
+              disciplines[i].classList.remove('vid-playing');
+            });
+            heroVid.play().catch(function() {});
+          } else {
+            heroVid.pause();
+          }
+        });
+      }, { threshold: 0.3 });
+      heroObserver.observe(document.getElementById('hero'));
+    }
+
+  } else {
+    // ── Desktop / mobile ──
+    startHero();
+
+    var isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+    var tvModeEnabled = false;
+
+    function activateTVMode() {
+      if (tvModeEnabled || isTouchDevice) return;
+      tvModeEnabled = true;
+      enableTVMode();
+    }
+
+    // document.autoplayPolicy is supported in Chromium-based browsers (Chrome, Edge).
+    // 'allowed'         = autoplay will work, no need for fallback
+    // 'allowed-muted'   = muted autoplay works (our videos are muted, so fine)
+    // 'disallowed'      = autoplay blocked, show hints immediately — no waiting
+    var autoplayBlocked = (typeof document.autoplayPolicy === 'string') &&
+                          document.autoplayPolicy === 'disallowed';
+
+    if (!isTouchDevice && autoplayBlocked) {
+      activateTVMode();
+    }
+
+    discVideos.forEach(function(v, i) {
+      v.muted = true;
+
+      v.addEventListener('canplay', function() {
+        disciplines[i].classList.add('vid-ready');
+      });
+
+      // 'playing' = frames actually rendering — the only trustworthy signal
+      v.addEventListener('playing', function onPlaying() {
+        v.removeEventListener('playing', onPlaying);
+        disciplines[i].classList.add('vid-ready');
+        disciplines[i].classList.add('vid-playing');
+      });
+
+      v.play().catch(function() {
+        // Promise rejected — definitely blocked
+        activateTVMode();
+      });
+    });
+
+    // Safety net: after 800ms, if no video is playing and TV mode isn't active yet,
+    // activate it. Catches Edge's silent-resolve-but-never-plays case.
+    if (!isTouchDevice && !autoplayBlocked) {
+      setTimeout(function() {
+        if (tvModeEnabled) return;
+        var anyPlaying = discVideos.some(function(v) { return !v.paused; });
+        if (!anyPlaying) activateTVMode();
+      }, 800);
+    }
+  }
+})();
+</script>
+
+
+<!-- RESULTS -->
+<section id="results">
+
+  <!-- PB NUMBERS -->
+  <div class="results-pbs">
+    <div class="pb-intro" style="text-align:center;">
+      <div class="section-label" style="margin-bottom:0.75rem;">Personal Bests</div>
+      <p class="pb-sub">Star Diving Club Guildford · Group C</p>
+    </div>
+    <div class="pb-grid">
+
+      <div class="pb-card">
+        <div class="pb-event">1m SB</div>
+        <div class="pb-scores">
+          <div class="pb-score"><span class="pb-num">95.50</span><span class="pb-dives">3 dives</span></div>
+          <div class="pb-score"><span class="pb-num">141.40</span><span class="pb-dives">5 dives</span></div>
+          <div class="pb-score pb-score--top"><span class="pb-num">197.30</span><span class="pb-dives">6 dives</span></div>
+        </div>
+      </div>
+
+      <div class="pb-card">
+        <div class="pb-event">3m SB</div>
+        <div class="pb-scores">
+          <div class="pb-score"><span class="pb-num">88.05</span><span class="pb-dives">3 dives</span></div>
+          <div class="pb-score"><span class="pb-num">127.80</span><span class="pb-dives">5 dives</span></div>
+          <div class="pb-score pb-score--top"><span class="pb-num">205.40</span><span class="pb-dives">6 dives</span></div>
+        </div>
+      </div>
+
+      <div class="pb-card">
+        <div class="pb-event">PF</div>
+        <div class="pb-scores">
+          <div class="pb-score"><span class="pb-num">87.55</span><span class="pb-dives">3 dives</span></div>
+          <div class="pb-score"><span class="pb-num">151.70</span><span class="pb-dives">5 dives</span></div>
+          <div class="pb-score pb-score--top"><span class="pb-num">197.35</span><span class="pb-dives">6 dives</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- COMPETITION TIMELINE -->
+  <div class="results-timeline">
+    <div class="section-label" style="margin-bottom:2rem;">Competition History</div>
+
+    <div class="timeline">
+
+      <div class="tl-year">2026</div>
+      <div class="tl-meet tl-has-cards" data-meet="SE Region Age Groups 2026" onclick="caiTimelineClick(this)">
+        <div class="tl-name">Swim England South East Region Age Groups <span class="tl-card-hint">→ view cards</span></div>
+        <div class="tl-events">C Open 1m · 3m · Platform</div>
+      </div>
+      <div class="tl-meet tl-has-cards" data-meet="Armada Cup 2026" onclick="caiTimelineClick(this)">
+        <div class="tl-name">Armada Cup <span class="tl-card-hint">→ view cards</span></div>
+        <div class="tl-events">C Boys 1m · 3m · Platform · Synchro 1m</div>
+      </div>
+
+      <div class="tl-year">2025</div>
+      <div class="tl-meet tl-has-cards" data-meet="NAG Championships 2025" onclick="caiTimelineClick(this)">
+        <div class="tl-name">Swim England Diving NAG Championships <span class="tl-card-hint">→ view cards</span></div>
+        <div class="tl-events tl-national">Group C 1m · 3m · Platform</div>
+      </div>
+      <div class="tl-meet tl-has-cards" data-meet="East Region Age Groups 2025" onclick="caiTimelineClick(this)">
+        <div class="tl-name">Swim England East Region Age Groups <span class="tl-card-hint">→ view cards</span></div>
+        <div class="tl-events">Group C 1m · 3m · Platform</div>
+      </div>
+      <div class="tl-meet tl-has-cards" data-meet="Armada Cup 2025" onclick="caiTimelineClick(this)">
+        <div class="tl-name">Armada Cup <span class="tl-card-hint">→ view cards</span></div>
+        <div class="tl-events">C Open 1m · 3m · Platform — Prelim &amp; Final</div>
+      </div>
+
+      <div class="tl-year">2024</div>
+      <div class="tl-meet tl-has-cards" data-meet="NAG Championships 2024" onclick="caiTimelineClick(this)">
+        <div class="tl-name">Swim England Diving NAG Championships <span class="tl-card-hint">→ view cards</span></div>
+        <div class="tl-events tl-national">Group D 1m · Platform</div>
+      </div>
+      <div class="tl-meet tl-has-cards" data-meet="SE Region Age Groups 2024" onclick="caiTimelineClick(this)">
+        <div class="tl-name">Swim England South East Region Age Groups <span class="tl-card-hint">→ view cards</span></div>
+        <div class="tl-events">D Open 1m · 3m · Platform</div>
+      </div>
+      <div class="tl-meet tl-has-cards" data-meet="East Region Age Groups 2024" onclick="caiTimelineClick(this)">
+        <div class="tl-name">Swim England East Region Age Groups <span class="tl-card-hint">→ view cards</span></div>
+        <div class="tl-events">Group D 1m · 3m · Platform</div>
+      </div>
+      <div class="tl-meet tl-has-cards" data-meet="Armada Cup 2024" onclick="caiTimelineClick(this)">
+        <div class="tl-name">Armada Cup <span class="tl-card-hint">→ view cards</span></div>
+        <div class="tl-events">D Open 5m — Prelim &amp; Final</div>
+      </div>
+
+      <div class="tl-year">2023</div>
+      <div class="tl-meet tl-has-cards" data-meet="National Skills Finals 2023" onclick="caiTimelineClick(this)">
+        <div class="tl-name">Swim England National Skills Finals <span class="tl-card-hint">→ view card</span></div>
+        <div class="tl-events tl-national">Group D1 Boys</div>
+      </div>
+      <div class="tl-meet tl-has-cards" data-meet="SE Region Skills 2023" onclick="caiTimelineClick(this)">
+        <div class="tl-name">Swim England South East Region Skills <span class="tl-card-hint">→ view card</span></div>
+        <div class="tl-events">D1 Boys</div>
+      </div>
+      <div class="tl-meet tl-has-cards" data-meet="London Region Skills 2023" onclick="caiTimelineClick(this)">
+        <div class="tl-name">Swim England London Region Skills <span class="tl-card-hint">→ view card</span></div>
+        <div class="tl-events">D1 Boys</div>
+      </div>
+      <div class="tl-meet tl-has-cards" data-meet="SEER Regional Skills 2023" onclick="caiTimelineClick(this)">
+        <div class="tl-name">SEER Regional Skills <span class="tl-card-hint">→ view card</span></div>
+        <div class="tl-events">Group D Boys</div>
+      </div>
+
+      <div class="tl-year">2022</div>
+      <div class="tl-meet tl-has-cards" data-meet="National Skills Finals 2022" onclick="caiTimelineClick(this)">
+        <div class="tl-name">Swim England National Skills Finals <span class="tl-card-hint">→ view card</span></div>
+        <div class="tl-events tl-national">Group E Boys</div>
+      </div>
+      <div class="tl-meet tl-has-cards" data-meet="NW Regional Skills 2022" onclick="caiTimelineClick(this)">
+        <div class="tl-name">North West Regional Skills <span class="tl-card-hint">→ view card</span></div>
+        <div class="tl-events">Group E Boys</div>
+      </div>
+      <div class="tl-meet tl-has-cards" data-meet="SE Region Skills 2022" onclick="caiTimelineClick(this)">
+        <div class="tl-name">Swim England South East Region Skills <span class="tl-card-hint">→ view card</span></div>
+        <div class="tl-events">E Boys</div>
+      </div>
+
+      <div class="tl-year">2019</div>
+      <div class="tl-meet tl-has-cards" data-meet="Sheffield Santa Skills 2019" onclick="caiTimelineClick(this)">
+        <div class="tl-name">Sheffield Santa Skills <span class="tl-card-hint">→ view card</span></div>
+        <div class="tl-events">Mini E Boys</div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!-- DIVE CARDS -->
+<section id="cards">
+  <div class="section-label">Results</div>
+  <div class="section-sublabel">Click any card to see the full scoresheet</div>
+
+  <!-- FILTER BAR -->
+  <div class="cards-filter-bar" id="cardsFilterBar">
+
+    <!-- View mode -->
+    <div class="cfb-group">
+      <span class="cfb-label">View</span>
+      <button class="cfb-btn active" data-view="all">All</button>
+      <button class="cfb-btn" data-view="year">By Year</button>
+      <button class="cfb-btn" data-view="meet">By Meet</button>
+    </div>
+
+    <div class="cfb-divider"></div>
+
+    <!-- Apparatus filter -->
+    <div class="cfb-group">
+      <span class="cfb-label">Board</span>
+      <button class="cfb-btn active" data-board="all">All</button>
+      <button class="cfb-btn" data-board="1m">1m</button>
+      <button class="cfb-btn" data-board="3m">3m</button>
+      <button class="cfb-btn" data-board="platform">Platform</button>
+      <button class="cfb-btn" data-board="skills">Skills</button>
+    </div>
+
+    <div class="cfb-divider"></div>
+
+    <!-- Result filter -->
+    <div class="cfb-group">
+      <span class="cfb-label">Result</span>
+      <button class="cfb-btn active" data-result="all">All</button>
+      <button class="cfb-btn" data-result="podium">Podium</button>
+      <button class="cfb-btn" data-result="1">🥇</button>
+      <button class="cfb-btn" data-result="2">🥈</button>
+      <button class="cfb-btn" data-result="3">🥉</button>
+    </div>
+
+  </div>
+
+  <div id="cardsFilterSummary" style="width:100%;max-width:1200px;font-size:12px;color:rgba(255,255,255,0.3);margin-bottom:0.75rem;letter-spacing:0.05em;min-height:1.2em;"></div>
+  <div style="width:100%;max-width:1200px;font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem;font-family:var(--sans);font-weight:500;">SB = Springboard &middot; PF = Platform</div>
+  <div id="cardsDeckWrap"></div>
+</section>
+
+<div class="cards-overlay" id="cardsOverlay" onclick="caiCloseModal(event)">
+  <div class="cards-modal" id="cardsModal"></div>
+</div>
+
+<script>
+var caiMeets = [
+  {
+    meet:"SE Region Age Groups 2026",date:"3 May 2026",event:"1m SB",score:197.30,rank:"1",rankNum:1,national:false,
+    dives:[
+      {code:"103B",dd:1.7,judges:[7,6.5,7,6,6.5],score:34.00},
+      {code:"201B",dd:1.6,judges:[5.5,6.5,6,6.5,7],score:30.40},
+      {code:"301B",dd:1.7,judges:[6,5.5,6,6.5,6],score:30.60},
+      {code:"203C",dd:2.0,judges:[5,5,5,5,4.5],score:30.00},
+      {code:"403C",dd:2.2,judges:[5.5,5.5,5.5,5,6],score:36.30},
+      {code:"105C",dd:2.4,judges:[5,5,5,5,4.5],score:36.00}
+    ]
+  },
+  {
+    meet:"SE Region Age Groups 2026",date:"3 May 2026",event:"3m SB",score:205.40,rank:"1",rankNum:1,national:false,
+    dives:[
+      {code:"403B",dd:2.1,judges:[6,6,6,5.5,5.5],score:36.75},
+      {code:"103B",dd:1.6,judges:[7,6.5,6.5,6.5,6.5],score:31.20},
+      {code:"201B",dd:1.8,judges:[6,6,5.5,6,6.5],score:32.40},
+      {code:"203C",dd:1.9,judges:[4,4,5,5.5,5],score:26.60},
+      {code:"5132D",dd:2.1,judges:[7,6.5,5.5,5.5,6.5],score:38.85},
+      {code:"105B",dd:2.4,judges:[5,6.5,5.5,5,6],score:39.60}
+    ]
+  },
+  {
+    meet:"SE Region Age Groups 2026",date:"4 May 2026",event:"PF",score:197.35,rank:"2",rankNum:2,national:false,
+    dives:[
+      {code:"103B",dd:1.6,judges:[7,6.5,6.5,5.5,6.5],score:31.20},
+      {code:"403B",dd:2.1,judges:[7,7,7,7,7.5],score:44.10},
+      {code:"201B",dd:1.6,judges:[3.5,4,4.5,3.5,4.5],score:19.20},
+      {code:"301B",dd:1.7,judges:[6.5,5.5,6.5,6,6],score:31.45},
+      {code:"203C",dd:2.0,judges:[5,5,6,5.5,6],score:33.00},
+      {code:"105C",dd:2.4,judges:[5,5.5,4.5,6,5.5],score:38.40}
+    ]
+  },
+  {
+    meet:"Armada Cup 2026",date:"16 Feb 2026",event:"3m SB",score:202.40,rank:"2",rankNum:2,national:false,
+    dives:[
+      {code:"403B",dd:2.1,judges:[5,4.5,6,5.5,5.5],score:33.60},
+      {code:"103B",dd:1.6,judges:[5.5,5.5,6,6,6],score:28.00},
+      {code:"201B",dd:1.8,judges:[6,6.5,6.5,6,6],score:33.30},
+      {code:"203C",dd:1.9,judges:[5.5,5,5,5.5,6],score:30.40},
+      {code:"5132D",dd:2.1,judges:[6,6,6.5,6.5,6.5],score:39.90},
+      {code:"105B",dd:2.4,judges:[5,5,5,5.5,5.5],score:37.20}
+    ]
+  },
+  {
+    meet:"Armada Cup 2026",date:"14 Feb 2026",event:"1m SB",score:194.50,rank:"3",rankNum:3,national:false,
+    dives:[
+      {code:"103B",dd:1.7,judges:[6,6,6,6,5.5],score:30.60},
+      {code:"201B",dd:1.6,judges:[7,5.5,5.5,6,6.5],score:28.80},
+      {code:"301B",dd:1.7,judges:[5.5,6,5.5,5.5,6],score:28.90},
+      {code:"203C",dd:2.0,judges:[6.5,6.5,6,6.5,6],score:38.00},
+      {code:"403C",dd:2.2,judges:[5.5,6,5.5,5,5],score:35.20},
+      {code:"104C",dd:2.2,judges:[5,5,5,5,5],score:33.00}
+    ]
+  },
+  {
+    meet:"Armada Cup 2026",date:"15 Feb 2026",event:"PF",score:183.45,rank:"7",rankNum:7,national:false,
+    dives:[
+      {code:"103B",dd:1.6,judges:[6,6,6,6.5,6.5],score:29.60},
+      {code:"403B",dd:2.1,judges:[6,6,6.5,6.5,6.5],score:39.90},
+      {code:"201B",dd:1.6,judges:[5.5,5,6.5,5.5,5.5],score:26.40},
+      {code:"301B",dd:1.7,judges:[6,6,5.5,5,6],score:29.75},
+      {code:"203C",dd:2.0,judges:[5,5,4.5,4.5,5.5],score:29.00},
+      {code:"105C",dd:2.4,judges:[4,3.5,4,4,4.5],score:28.80}
+    ]
+  },
+  {
+    meet:"Armada Cup 2026",date:"14 Feb 2026",event:"Synchro 1m",score:165.03,rank:"3",rankNum:3,national:false,synchro:"w/ Oliver Blandford-Gange",
+    dives:[
+      {code:"401B",dd:2.0,judges:[6,6,6.5,6.5,6,5.5,6],score:36.00},
+      {code:"201C",dd:2.0,judges:[5.5,7,6.5,6,6,6,6],score:36.60},
+      {code:"103B",dd:1.7,judges:[5.5,6,6,5.5,6,5.5,7],score:30.60},
+      {code:"301B",dd:1.7,judges:[5,5.5,3.5,4.5,4.5,2,4.5],score:20.91},
+      {code:"403C",dd:2.2,judges:[5.5,6,5.5,6.5,6,7,6.5],score:40.92}
+    ]
+  },
+  {
+    meet:"NAG Championships 2025",date:"28 Jun 2025",event:"1m SB",score:186.55,rank:"3=",rankNum:3,national:true,
+    dives:[
+      {code:"401B",dd:1.5,judges:[7,7,6.5,7,6.5],score:30.75},
+      {code:"103B",dd:1.7,judges:[6.5,6.5,5,6,6.5],score:32.30},
+      {code:"201B",dd:1.6,judges:[4,4.5,4,4.5,5],score:20.80},
+      {code:"301B",dd:1.7,judges:[6.5,5.5,6,6.5,6.5],score:32.30},
+      {code:"403C",dd:2.2,judges:[5.5,4.5,5.5,5.5,6],score:36.30},
+      {code:"104C",dd:2.2,judges:[4.5,5.5,5.5,4.5,5.5],score:34.10}
+    ]
+  },
+  {
+    meet:"NAG Championships 2025",date:"27 Jun 2025",event:"3m SB",score:180.40,rank:"6",rankNum:6,national:true,
+    dives:[
+      {code:"103B",dd:1.6,judges:[7,6,6,6.5,7],score:31.20},
+      {code:"201B",dd:1.8,judges:[5.5,5,5.5,5,6],score:28.80},
+      {code:"301B",dd:1.9,judges:[4.5,5,4.5,5.5,4.5],score:26.60},
+      {code:"403B",dd:2.1,judges:[6,6,5.5,6.5,5.5],score:36.75},
+      {code:"203C",dd:1.9,judges:[4,4,3,4,3.5],score:21.85},
+      {code:"105C",dd:2.2,judges:[5,5.5,6,5,5.5],score:35.20}
+    ]
+  },
+  {
+    meet:"NAG Championships 2025",date:"26 Jun 2025",event:"PF",score:173.05,rank:"8=",rankNum:8,national:true,
+    dives:[
+      {code:"101B",dd:1.5,judges:[5,4.5,4,4,4],score:18.75},
+      {code:"201B",dd:1.6,judges:[5.5,5.5,5.5,5.5,5.5],score:26.40},
+      {code:"301B",dd:1.7,judges:[5.5,5.5,6,5,6],score:28.90},
+      {code:"103B",dd:1.6,judges:[6,5.5,6,6,6],score:28.80},
+      {code:"403C",dd:2.2,judges:[6,6,6,7,6],score:39.60},
+      {code:"612B",dd:1.7,judges:[5.5,5.5,6.5,6,6.5],score:30.60}
+    ]
+  }
+
+  ,{
+    meet:"East Region Age Groups 2025",date:"27 Apr 2025",event:"1m SB",score:190.75,rank:"1",rankNum:1,national:false,
+    dives:[
+      {code:"401B",dd:1.5,judges:[6,5.5,6,5,6],score:26.25},
+      {code:"103B",dd:1.7,judges:[6.5,6,6,6.5,6.5],score:32.30},
+      {code:"201B",dd:1.6,judges:[5.5,6.5,6,5.5,6],score:28.00},
+      {code:"301B",dd:1.7,judges:[5.5,5,5.5,6,5],score:27.20},
+      {code:"403C",dd:2.2,judges:[6.5,6.5,6,6,6],score:40.70},
+      {code:"104C",dd:2.2,judges:[6,5.5,5.5,5.5,5.5],score:36.30}
+    ]
+  },
+  {
+    meet:"East Region Age Groups 2025",date:"26 Apr 2025",event:"3m SB",score:190.75,rank:"1",rankNum:1,national:false,
+    dives:[
+      {code:"401B",dd:1.4,judges:[6.5,5.5,6.5,6,7],score:26.60},
+      {code:"101B",dd:1.5,judges:[6,6,6.5,6,6.5],score:27.75},
+      {code:"201B",dd:1.8,judges:[5.5,5.5,5.5,6.5,6],score:30.60},
+      {code:"301B",dd:1.9,judges:[5.5,4.5,6,5.5,6],score:32.30},
+      {code:"103B",dd:1.6,judges:[6.5,7,7,7,7],score:33.60},
+      {code:"403C",dd:1.9,judges:[6,7,7,7,7],score:39.90}
+    ]
+  },
+  {
+    meet:"East Region Age Groups 2025",date:"27 Apr 2025",event:"PF",score:171.90,rank:"1",rankNum:1,national:false,
+    dives:[
+      {code:"101B",dd:1.5,judges:[6.5,6.5,6.5,6.5,7],score:29.25},
+      {code:"201B",dd:1.6,judges:[6.5,6,6,5.5,6.5],score:29.60},
+      {code:"301B",dd:1.7,judges:[5,5,5.5,5,5],score:25.50},
+      {code:"103B",dd:1.7,judges:[4.5,4.5,4.5,5.5,5],score:23.80},
+      {code:"403C",dd:2.2,judges:[5.5,5.5,6,6,5.5],score:37.40},
+      {code:"612B",dd:1.7,judges:[5,5.5,5,5,5.5],score:26.35}
+    ]
+  },
+  {
+    meet:"Armada Cup 2025",date:"17 Feb 2025",event:"1m Prelim",score:180.05,rank:"5",rankNum:5,national:false,
+    dives:[
+      {code:"401B",dd:1.5,judges:[5.5,6,7,6,7],score:28.50},
+      {code:"103B",dd:1.7,judges:[5,5,5,5.5,6],score:26.35},
+      {code:"201B",dd:1.6,judges:[5.5,5.5,5.5,5.5,6.5],score:26.40},
+      {code:"301C",dd:1.6,judges:[5,5.5,4,5,5],score:24.00},
+      {code:"403C",dd:2.2,judges:[6,6,6,6.5,6],score:39.60},
+      {code:"104C",dd:2.2,judges:[5,5.5,5,5.5,6],score:35.20}
+    ]
+  },
+  {
+    meet:"Armada Cup 2025",date:"17 Feb 2025",event:"1m Final",score:95.50,rank:"3",rankNum:3,national:false,
+    dives:[
+      {code:"301C",dd:1.6,judges:[5,5,5.5,5,5],score:24.00},
+      {code:"403C",dd:2.2,judges:[5.5,5,5,5,5],score:33.00},
+      {code:"104C",dd:2.2,judges:[6,5.5,6.5,5.5,6],score:38.50}
+    ]
+  },
+  {
+    meet:"Armada Cup 2025",date:"15 Feb 2025",event:"3m Prelim",score:177.45,rank:"5",rankNum:5,national:false,
+    dives:[
+      {code:"401B",dd:1.4,judges:[6,5.5,5.5,5.5,6.5],score:23.80},
+      {code:"101B",dd:1.5,judges:[6,6.5,6,5.5,6],score:27.00},
+      {code:"201B",dd:1.8,judges:[5.5,5.5,5.5,6,5.5],score:29.70},
+      {code:"301C",dd:1.8,judges:[6.5,6,6.5,6,6],score:33.30},
+      {code:"103B",dd:1.6,judges:[7,6,7,6,6],score:30.40},
+      {code:"403C",dd:1.9,judges:[6,5.5,6,5,6],score:33.25}
+    ]
+  },
+  {
+    meet:"Armada Cup 2025",date:"15 Feb 2025",event:"3m Final",score:88.05,rank:"6",rankNum:6,national:false,
+    dives:[
+      {code:"103B",dd:1.6,judges:[6,6,6,5.5,6],score:28.80},
+      {code:"301C",dd:1.8,judges:[5,5.5,5.5,5,5],score:27.90},
+      {code:"403C",dd:1.9,judges:[5.5,5.5,5.5,6,5.5],score:31.35}
+    ]
+  },
+  {
+    meet:"Armada Cup 2025",date:"18 Feb 2025",event:"PF Prelim",score:177.20,rank:"5",rankNum:5,national:false,
+    dives:[
+      {code:"401B",dd:1.5,judges:[5.5,5.5,6,5.5,6.5],score:25.50},
+      {code:"201B",dd:1.6,judges:[5.5,6,4.5,5.5,5.5],score:26.40},
+      {code:"301C",dd:1.6,judges:[6,6,5.5,5.5,5.5],score:27.20},
+      {code:"103B",dd:1.7,judges:[6,6,5.5,6,6],score:30.60},
+      {code:"403C",dd:2.2,judges:[5,6,5,5.5,5.5],score:35.20},
+      {code:"612B",dd:1.7,judges:[6,5.5,6.5,6.5,6.5],score:32.30}
+    ]
+  },
+  {
+    meet:"Armada Cup 2025",date:"18 Feb 2025",event:"PF Final",score:87.55,rank:"6",rankNum:6,national:false,
+    dives:[
+      {code:"301C",dd:1.6,judges:[6,5.5,6,5.5,6],score:28.00},
+      {code:"612B",dd:1.7,judges:[6.5,6.5,6.5,6.5,6],score:33.15},
+      {code:"403C",dd:2.2,judges:[4.5,4,4,4,4],score:26.40}
+    ]
+  },
+  {
+    meet:"NAG Championships 2024",date:"28 Jun 2024",event:"1m SB",score:141.40,rank:"5",rankNum:5,national:true,
+    dives:[
+      {code:"201B",dd:1.6,judges:[4,3,4,4.5,3.5],score:18.40},
+      {code:"301B",dd:1.7,judges:[5,5,5,5.5,5],score:25.50},
+      {code:"103B",dd:1.7,judges:[6,5.5,5.5,5.5,6],score:28.90},
+      {code:"203C",dd:2.0,judges:[5.5,5,4.5,4.5,5],score:29.00},
+      {code:"403C",dd:2.2,judges:[6.5,6,6,6,5.5],score:39.60}
+    ]
+  },
+  {
+    meet:"NAG Championships 2024",date:"29 Jun 2024",event:"PF",score:151.70,rank:"2",rankNum:2,national:true,
+    dives:[
+      {code:"612B",dd:1.7,judges:[5,5,4.5,3.5,4.5],score:23.80},
+      {code:"201B",dd:1.6,judges:[5.5,5.5,6,6,5.5],score:27.20},
+      {code:"301B",dd:1.7,judges:[5,5,5.5,5,5.5],score:26.35},
+      {code:"103B",dd:1.7,judges:[5.5,6.5,6.5,6.5,5.5],score:31.45},
+      {code:"403C",dd:2.2,judges:[6,6.5,6.5,6.5,6.5],score:42.90}
+    ]
+  },
+  {
+    meet:"SE Region Age Groups 2024",date:"6 May 2024",event:"1m SB",score:141.25,rank:"3",rankNum:3,national:false,
+    dives:[
+      {code:"201B",dd:1.6,judges:[5,6,6,6,6.5],score:28.80},
+      {code:"301C",dd:1.6,judges:[5,5.5,5,5,5.5],score:24.80},
+      {code:"103B",dd:1.7,judges:[6.5,6,6,6.5,6],score:31.45},
+      {code:"203C",dd:2.0,judges:[2.5,3.5,4,3,4],score:21.00},
+      {code:"403C",dd:2.2,judges:[5.5,5.5,5,6,5],score:35.20}
+    ]
+  },
+  {
+    meet:"SE Region Age Groups 2024",date:"6 May 2024",event:"3m SB",score:127.80,rank:"6",rankNum:6,national:false,
+    dives:[
+      {code:"201B",dd:1.8,judges:[4.5,4.5,5,5,5],score:26.10},
+      {code:"401B",dd:1.4,judges:[5.5,6,6.5,6.5,6],score:25.90},
+      {code:"301B",dd:1.9,judges:[3.5,4.5,4,4,4],score:22.80},
+      {code:"103B",dd:1.6,judges:[5.5,6,5.5,5.5,5.5],score:26.40},
+      {code:"403C",dd:1.9,judges:[4.5,4.5,4.5,5.5,5],score:26.60}
+    ]
+  },
+  {
+    meet:"SE Region Age Groups 2024",date:"5 May 2024",event:"PF",score:124.45,rank:"4",rankNum:4,national:false,
+    dives:[
+      {code:"101B",dd:1.3,judges:[6,4.5,5,5,5],score:19.50},
+      {code:"201B",dd:1.6,judges:[4.5,5.5,5.5,4.5,5.5],score:24.80},
+      {code:"301C",dd:1.6,judges:[5,5,5.5,4,4],score:22.40},
+      {code:"103B",dd:1.7,judges:[6,5.5,5,5.5,5.5],score:28.05},
+      {code:"403C",dd:2.2,judges:[4.5,4,4.5,5,4.5],score:29.70}
+    ]
+  },
+  {
+    meet:"East Region Age Groups 2024",date:"20 Apr 2024",event:"1m SB",score:126.35,rank:"1",rankNum:1,national:false,
+    dives:[
+      {code:"201B",dd:1.6,judges:[5,5,4,4,4.5],score:21.60},
+      {code:"301C",dd:1.6,judges:[5,5,5,4.5,4.5],score:23.20},
+      {code:"103B",dd:1.7,judges:[5,5,5.5,6,4.5],score:26.35},
+      {code:"203C",dd:2.0,judges:[3,3.5,3.5,2,3.5],score:20.00},
+      {code:"403C",dd:2.2,judges:[5,5.5,5.5,6,5],score:35.20}
+    ]
+  },
+  {
+    meet:"East Region Age Groups 2024",date:"20 Apr 2024",event:"3m SB",score:118.45,rank:"4",rankNum:4,national:false,
+    dives:[
+      {code:"201B",dd:1.8,judges:[4.5,4.5,4.5,4,3.5],score:23.40},
+      {code:"401B",dd:1.4,judges:[4.5,4.5,5,4.5,4.5],score:18.90},
+      {code:"301C",dd:1.8,judges:[4.5,4,4,4,4],score:21.60},
+      {code:"103B",dd:1.6,judges:[4.5,4.5,5,6,5],score:23.20},
+      {code:"403C",dd:1.9,judges:[5.5,5.5,5,6,5.5],score:31.35}
+    ]
+  },
+  {
+    meet:"East Region Age Groups 2024",date:"21 Apr 2024",event:"PF",score:118.15,rank:"1",rankNum:1,national:false,
+    dives:[
+      {code:"101B",dd:1.3,judges:[4,4,4,5,4],score:15.60},
+      {code:"201C",dd:1.5,judges:[4,5.5,5.5,4.5,5],score:22.50},
+      {code:"301C",dd:1.6,judges:[4,4.5,5,4.5,4.5],score:21.60},
+      {code:"103B",dd:1.7,judges:[6.5,7,7,6,6],score:33.15},
+      {code:"403C",dd:2.2,judges:[4,3.5,3.5,4.5,4],score:25.30}
+    ]
+  },
+  {
+    meet:"Armada Cup 2024",date:"10 Feb 2024",event:"5m Prelim",score:121.65,rank:"6",rankNum:6,national:false,
+    dives:[
+      {code:"101C",dd:1.2,judges:[4.5,4.5,5,5,5],score:17.40},
+      {code:"201C",dd:1.5,judges:[6,5.5,5.5,5,6],score:25.50},
+      {code:"301C",dd:1.6,judges:[4.5,4.5,5,4.5,4.5],score:21.60},
+      {code:"103B",dd:1.7,judges:[5.5,5,5,5,5.5],score:26.35},
+      {code:"403C",dd:2.2,judges:[4.5,4.5,5,4,5],score:30.80}
+    ]
+  },
+  {
+    meet:"Armada Cup 2024",date:"10 Feb 2024",event:"5m Final",score:83.70,rank:"3",rankNum:3,national:false,
+    dives:[
+      {code:"301C",dd:1.6,judges:[5.5,5.5,5.5,5.5,5],score:26.40},
+      {code:"103B",dd:1.7,judges:[4.5,4,4.5,5,4],score:22.10},
+      {code:"403C",dd:2.2,judges:[6,5,5.5,5,5.5],score:35.20}
+    ]
+  },
+
+  /* ── SKILLS COMPETITIONS ── */
+  {
+    meet:"National Skills Finals 2023",date:"16 Jul 2023",event:"Group D1 Boys",score:267.25,rank:"3",rankNum:3,national:true,skills:true,
+    dives:[
+      {code:"100A",dd:1.0,judges:[5.5,6,6],score:17.50},
+      {code:"200A",dd:1.0,judges:[6.5,6.5,6],score:19.00},
+      {code:"103C",dd:1.6,judges:[6.5,7,6.5],score:32.00},
+      {code:"301C",dd:1.6,judges:[5,5,5],score:24.00},
+      {code:"10A",dd:1.2,judges:[6,6.5,7.5],score:24.00},
+      {code:"11C",dd:1.2,judges:[6,6,6],score:21.60},
+      {code:"20A",dd:1.4,judges:[5.5,6.5,6],score:25.20},
+      {code:"21C",dd:1.3,judges:[6,5.5,5],score:21.45},
+      {code:"101A",dd:1.0,judges:[8,7.5,7.5],score:23.00},
+      {code:"200C",dd:1.0,judges:[6,6,7.5],score:19.50},
+      {code:"101C",dd:1.0,judges:[7.5,7.5,7],score:22.00},
+      {code:"100B",dd:1.0,judges:[6,6,6],score:18.00}
+    ]
+  },
+  {
+    meet:"SE Region Skills 2023",date:"20 May 2023",event:"D1 Boys",score:270.45,rank:"2",rankNum:2,national:false,skills:true,
+    dives:[
+      {code:"101A",dd:1.0,judges:[7.5,6,7],score:20.50},
+      {code:"200C",dd:1.0,judges:[6.5,7,6.5],score:20.00},
+      {code:"101C",dd:1.0,judges:[8.5,7.5,7.5],score:23.50},
+      {code:"100B",dd:1.0,judges:[5.5,6,6],score:17.50},
+      {code:"100A",dd:1.0,judges:[6,5.5,6],score:17.50},
+      {code:"200A",dd:1.0,judges:[5,5.5,5],score:15.50},
+      {code:"103C",dd:1.6,judges:[6.5,6,6],score:29.60},
+      {code:"301C",dd:1.6,judges:[6.5,5,6],score:28.00},
+      {code:"10A",dd:1.2,judges:[6,6.5,6],score:22.20},
+      {code:"10C",dd:1.2,judges:[7,7.5,7],score:25.80},
+      {code:"20A",dd:1.4,judges:[5,5.5,5.5],score:22.40},
+      {code:"20C",dd:1.3,judges:[7.5,7,7],score:27.95}
+    ]
+  },
+  {
+    meet:"London Region Skills 2023",date:"22 Apr 2023",event:"D1 Boys",score:273.35,rank:"2",rankNum:2,national:false,skills:true,
+    dives:[
+      {code:"10A",dd:1.2,judges:[7,7.5,7.5],score:26.40},
+      {code:"10C",dd:1.2,judges:[7,7,6.5],score:24.60},
+      {code:"20A",dd:1.4,judges:[6.5,7,6.5],score:28.00},
+      {code:"20C",dd:1.3,judges:[7,8,7.5],score:29.25},
+      {code:"101A",dd:1.0,judges:[7.5,7.5,7],score:22.00},
+      {code:"200C",dd:1.0,judges:[6,5.5,6.5],score:18.00},
+      {code:"101C",dd:1.0,judges:[7,7,7],score:21.00},
+      {code:"100B",dd:1.0,judges:[6.5,6.5,6.5],score:19.50},
+      {code:"100A",dd:1.0,judges:[6,6,5],score:17.00},
+      {code:"200A",dd:1.0,judges:[6.5,5.5,6],score:18.00},
+      {code:"103C",dd:1.6,judges:[5.5,6,6],score:28.00},
+      {code:"301C",dd:1.6,judges:[4,5,4.5],score:21.60}
+    ]
+  },
+  {
+    meet:"SEER Regional Skills 2023",date:"25 Mar 2023",event:"Group D Boys",score:263.55,rank:"3",rankNum:3,national:false,skills:true,
+    dives:[
+      {code:"101A",dd:1.0,judges:[7.5,6.5,7],score:21.00},
+      {code:"200C",dd:1.0,judges:[6.5,6,7],score:19.50},
+      {code:"101C",dd:1.0,judges:[7,6,7],score:20.00},
+      {code:"100B",dd:1.0,judges:[7,8,6.5],score:21.50},
+      {code:"100A",dd:1.0,judges:[5,6,5.5],score:16.50},
+      {code:"200A",dd:1.0,judges:[6.5,7,6],score:19.50},
+      {code:"101C",dd:1.2,judges:[6.5,6.5,5.5],score:22.20},
+      {code:"201C",dd:1.5,judges:[6,6,5.5],score:26.25},
+      {code:"10A",dd:1.2,judges:[6.5,6.5,5.5],score:22.20},
+      {code:"10C",dd:1.2,judges:[7,5.5,6],score:22.20},
+      {code:"20A",dd:1.4,judges:[6,7,7],score:28.00},
+      {code:"20C",dd:1.3,judges:[6.5,6.5,6],score:24.70}
+    ]
+  },
+  {
+    meet:"National Skills Finals 2022",date:"9 Jul 2022",event:"Group E Boys",score:259.45,rank:"3",rankNum:3,national:true,skills:true,
+    dives:[
+      {code:"101A",dd:1.0,judges:[5,5.5,5],score:15.50},
+      {code:"200C",dd:1.0,judges:[6,6,6.5],score:18.50},
+      {code:"101C",dd:1.0,judges:[7,7,7.5],score:21.50},
+      {code:"100B",dd:1.0,judges:[6.5,7,6.5],score:20.00},
+      {code:"100A",dd:1.0,judges:[5,6,6],score:17.00},
+      {code:"200A",dd:1.0,judges:[5.5,6,6.5],score:18.00},
+      {code:"103C",dd:1.6,judges:[5,4.5,6],score:24.80},
+      {code:"301C",dd:1.6,judges:[4.5,5,5],score:23.20},
+      {code:"10A",dd:1.2,judges:[7,8,7.5],score:27.00},
+      {code:"10C",dd:1.2,judges:[6.5,7.5,7],score:25.20},
+      {code:"20A",dd:1.4,judges:[6.5,6.5,6.5],score:27.30},
+      {code:"20C",dd:1.3,judges:[6,5,5.5],score:21.45}
+    ]
+  },
+  {
+    meet:"NW Regional Skills 2022",date:"5 Jun 2022",event:"Group E Boys",score:262.70,rank:"2",rankNum:2,national:false,skills:true,
+    dives:[
+      {code:"100A",dd:1.0,judges:[6,6,5.5],score:17.50},
+      {code:"200A",dd:1.0,judges:[5.5,5.5,5.5],score:16.50},
+      {code:"103C",dd:1.6,judges:[5.5,6,5],score:26.40},
+      {code:"301C",dd:1.6,judges:[5.5,5.5,6],score:27.20},
+      {code:"10A",dd:1.2,judges:[6,6,6],score:21.60},
+      {code:"10C",dd:1.2,judges:[7.5,6.5,6.5],score:24.60},
+      {code:"20A",dd:1.4,judges:[6.5,6,6],score:25.90},
+      {code:"20C",dd:1.3,judges:[5,5,5],score:19.50},
+      {code:"101A",dd:1.0,judges:[8,7,8.5],score:23.50},
+      {code:"200C",dd:1.0,judges:[6.5,7,8.5],score:22.00},
+      {code:"101C",dd:1.0,judges:[5.5,6.5,5],score:17.00},
+      {code:"100B",dd:1.0,judges:[6,6.5,8.5],score:21.00}
+    ]
+  },
+  {
+    meet:"SE Region Skills 2022",date:"28 May 2022",event:"E Boys",score:264.90,rank:"1",rankNum:1,national:false,skills:true,
+    dives:[
+      {code:"100A",dd:1.0,judges:[7,6,6],score:19.00},
+      {code:"200A",dd:1.0,judges:[7,6,6],score:19.00},
+      {code:"103C",dd:1.6,judges:[5.5,7,6],score:29.60},
+      {code:"301C",dd:1.6,judges:[7,4.5,6],score:28.00},
+      {code:"10A",dd:1.2,judges:[7.5,7,8],score:27.00},
+      {code:"10C",dd:1.2,judges:[7,7,6.5],score:24.60},
+      {code:"20A",dd:1.4,judges:[7,7,6],score:28.00},
+      {code:"20C",dd:1.3,judges:[5,4,5],score:18.20},
+      {code:"101A",dd:1.0,judges:[6.5,6,6],score:18.50},
+      {code:"200C",dd:1.0,judges:[5.5,6,6],score:17.50},
+      {code:"101C",dd:1.0,judges:[4.5,5.5,5.5],score:15.50},
+      {code:"100B",dd:1.0,judges:[7,6.5,6.5],score:20.00}
+    ]
+  },
+  {
+    meet:"Sheffield Santa Skills 2019",date:"23 Nov 2019",event:"Mini E Boys",score:105.30,rank:"9",rankNum:9,national:false,skills:true,
+    dives:[
+      {code:"11C",dd:1.2,judges:[5.5,5.5,6],score:20.40},
+      {code:"10B",dd:1.0,judges:[5.5,5,5.5],score:16.00},
+      {code:"101A",dd:1.0,judges:[6,5,5.5],score:16.50},
+      {code:"200C",dd:1.0,judges:[6.5,6,6.5],score:19.00},
+      {code:"101C",dd:1.2,judges:[4.5,5,5],score:17.40},
+      {code:"20A",dd:1.0,judges:[5,5.5,5.5],score:16.00}
+    ]
+  }
+
+];
+
+function caiRankClass(n){
+  if(n===1) return 'r1';
+  if(n===2) return 'r2';
+  if(n===3) return 'r3';
+  return 'rn';
+}
+
+function caiBuildCard(m,i){
+  var best=Math.max.apply(null,m.dives.map(function(d){return d.dd;}));
+  var avg=0;
+  m.dives.forEach(function(d){
+    var j=d.judges.slice().sort(function(a,b){return a-b;});
+    var used=j.length>3?j.slice(1,-1):j; // 3-judge: use all; 5-judge: drop hi/lo
+    avg+=used.reduce(function(a,b){return a+b;},0)/used.length;
+  });
+  avg=(avg/m.dives.length).toFixed(1);
+
+  var el=document.createElement('div');
+  el.className='dive-card';
+  el.setAttribute('data-idx',i);
+  el.innerHTML=
+    '<div class="dc-top">'+
+      '<div class="dc-score">'+m.score.toFixed(2)+'</div>'+
+      '<div class="dc-event">'+m.event+'</div>'+
+      '<div class="dc-rank '+caiRankClass(m.rankNum)+'">'+m.rank+'</div>'+
+      '<div style="position:absolute;bottom:8px;right:8px;display:flex;flex-direction:column;align-items:flex-end;gap:3px;">'+
+        (m.national&&!m.skills?'<div class="dc-national" style="position:static;">NAGs</div>':'')+
+        (m.skills?'<div class="dc-national" style="position:static;background:var(--muted);color:var(--white);font-size:8px;">NS</div>':'')+
+      '</div>'+
+    '</div>'+
+    '<div class="dc-divider"></div>'+
+    '<div class="dc-stats">'+
+      '<div class="dc-stat"><div class="dc-stat-val">'+m.dives.length+'</div><div class="dc-stat-lbl">Dives</div></div>'+
+      '<div class="dc-stat"><div class="dc-stat-val">'+best.toFixed(1)+'</div><div class="dc-stat-lbl">Top DD</div></div>'+
+      '<div class="dc-stat"><div class="dc-stat-val">'+avg+'</div><div class="dc-stat-lbl">Avg J</div></div>'+
+    '</div>'+
+    '<div class="dc-name-bar">'+
+      '<div class="dc-name">CAI TOBIN</div>'+
+      '<div class="dc-club">Star Diving · Guildford'+(m.synchro?'<br>'+m.synchro:'')+'</div>'+
+    '</div>'+
+    '<div class="dc-meet">'+m.meet+'<br>'+m.date+'</div>';
+  el.onclick=function(){caiOpenModal(i);};
+  return el;
+}
+
+function caiOpenModal(i){
+  var m=caiMeets[i];
+  var rows='';
+  var bestScore = Math.max.apply(null, m.dives.map(function(d){ return d.score; }));
+  m.dives.forEach(function(d,n){
+    var best = d.score === bestScore;
+    rows+='<tr'+(best?' style="color:#f0c040;font-weight:500"':'')+'>'+
+      '<td>'+(n+1)+'</td><td>'+d.code+'</td><td>'+d.dd+'</td>'+
+      '<td style="font-size:10px">'+d.judges.join(' ')+'</td>'+
+      '<td>'+d.score.toFixed(2)+'</td></tr>';
+  });
+  document.getElementById('cardsModal').innerHTML=
+    '<div class="cm-header">'+
+      '<div>'+
+        '<div class="cm-score">'+m.score.toFixed(2)+'</div>'+
+        '<div class="cm-event">'+m.event+'</div>'+
+        '<div class="cm-meet">'+m.meet+' · '+m.date+'</div>'+
+        (m.national?'<div class="cm-national">Swim England Nationals</div>':'')+
+        (m.skills?'<div class="cm-national" style="background:var(--muted)">Skills Competition · 3 Judges</div>':'')+
+        (m.synchro?'<div class="cm-meet">'+m.synchro+'</div>':'')+
+      '</div>'+
+      '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">'+
+        '<button class="cm-close" onclick="caiCloseModal()">✕</button>'+
+        '<div class="cm-rank-lbl">Rank</div>'+
+        '<div class="cm-rank-val">'+m.rank+'</div>'+
+      '</div>'+
+    '</div>'+
+    '<div class="cm-body">'+
+      '<table class="cm-table">'+
+        '<thead><tr><th>#</th><th>Dive</th><th>DD</th><th>'+(m.skills?'J1 · J2 · J3':'Judges')+'</th><th>Pts</th></tr></thead>'+
+        '<tbody>'+rows+'</tbody>'+
+      '</table>'+
+    '</div>';
+  document.getElementById('cardsOverlay').classList.add('open');
+}
+
+function caiCloseModal(e){
+  if(!e||e.target===document.getElementById('cardsOverlay'))
+    document.getElementById('cardsOverlay').classList.remove('open');
+}
+
+var deck=document.getElementById('cardsDeckWrap');
+
+/* ── state ── */
+var caiView   = 'all';
+var caiBoard  = 'all';
+var caiResult = 'all';
+
+/* ── helpers ── */
+function caiGetBoard(m) {
+  if (m.skills) return 'skills';
+  var e = m.event.toLowerCase();
+  if (e.indexOf('1m') !== -1) return '1m';
+  if (e.indexOf('3m') !== -1) return '3m';
+  if (e.indexOf('platform') !== -1 || e.indexOf('5m') !== -1 || e.indexOf('7.5') !== -1) return 'platform';
+  return 'other';
+}
+
+function caiGetYear(m) { return m.date.split(' ').pop(); }
+function caiGetMeet(m) { return m.meet; }
+
+function caiFilteredMeets() {
+  return caiMeets.filter(function(m) {
+    if (caiBoard !== 'all' && caiGetBoard(m) !== caiBoard) return false;
+    if (caiResult === 'podium' && m.rankNum > 3) return false;
+    if (caiResult === '1' && m.rankNum !== 1) return false;
+    if (caiResult === '2' && m.rankNum !== 2) return false;
+    if (caiResult === '3' && m.rankNum !== 3) return false;
+    return true;
+  });
+}
+
+function caiMakeGroupedDeck(groupFn) {
+  var filtered = caiFilteredMeets();
+  var groups = {};
+  var order  = [];
+  filtered.forEach(function(m) {
+    var key = groupFn(m);
+    if (!groups[key]) { groups[key] = []; order.push(key); }
+    groups[key].push(m);
+  });
+  var wrap = document.createDocumentFragment();
+  order.forEach(function(key) {
+    var grp = document.createElement('div');
+    grp.className = 'cards-group';
+    var lbl = document.createElement('div');
+    lbl.className = 'cards-group-label';
+    lbl.textContent = key;
+    var d = document.createElement('div');
+    d.className = 'cards-deck';
+    groups[key].forEach(function(m) { d.appendChild(caiBuildCard(m, m._idx)); });
+    grp.appendChild(lbl);
+    grp.appendChild(d);
+    wrap.appendChild(grp);
+  });
+  return wrap;
+}
+
+function caiRender() {
+  deck.innerHTML = '';
+  var filtered = caiFilteredMeets();
+
+  // summary line
+  var parts = [];
+  if (caiBoard  !== 'all') parts.push(caiBoard === 'platform' ? 'Platform' : caiBoard === 'skills' ? 'Skills' : caiBoard.toUpperCase());
+  if (caiResult !== 'all') parts.push(caiResult === 'podium' ? 'Podium' : caiResult === '1' ? '🥇 1st' : caiResult === '2' ? '🥈 2nd' : '🥉 3rd');
+  if (caiView   !== 'all') parts.push(caiView === 'year' ? 'grouped by year' : 'grouped by meet');
+  var summary = 'Showing ' + filtered.length + ' card' + (filtered.length !== 1 ? 's' : '');
+  if (parts.length) summary += ' · ' + parts.join(' · ');
+  document.getElementById('cardsFilterSummary').textContent = summary;
+
+  if (caiView === 'all') {
+    var d = document.createElement('div');
+    d.className = 'cards-deck';
+    d.id = 'cardsDeck';
+    filtered.forEach(function(m) { d.appendChild(caiBuildCard(m, m._idx)); });
+    deck.appendChild(d);
+  } else if (caiView === 'year') {
+    deck.appendChild(caiMakeGroupedDeck(caiGetYear));
+  } else if (caiView === 'meet') {
+    deck.appendChild(caiMakeGroupedDeck(caiGetMeet));
+  }
+}
+
+/* ── wire up filter bar ── */
+document.querySelectorAll('[data-view]').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    caiView = this.getAttribute('data-view');
+    document.querySelectorAll('[data-view]').forEach(function(b) { b.classList.remove('active'); });
+    this.classList.add('active');
+    caiRender();
+  });
+});
+
+document.querySelectorAll('[data-board]').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    caiBoard = this.getAttribute('data-board');
+    document.querySelectorAll('[data-board]').forEach(function(b) { b.classList.remove('active'); });
+    this.classList.add('active');
+    caiRender();
+  });
+});
+
+document.querySelectorAll('[data-result]').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    caiResult = this.getAttribute('data-result');
+    document.querySelectorAll('[data-result]').forEach(function(b) { b.classList.remove('active'); });
+    this.classList.add('active');
+    caiRender();
+  });
+});
+
+/* ── initial render handled by animation script ── */
+caiMeets.forEach(function(m, i) { m._idx = i; });
+
+function caiTimelineClick(el) {
+  var meetKey = el.getAttribute('data-meet');
+  var cardsSection = document.getElementById('cards');
+  cardsSection.scrollIntoView({behavior:'smooth', block:'start'});
+
+  setTimeout(function() {
+    // remove existing highlights
+    document.querySelectorAll('.dive-card').forEach(function(c){ c.classList.remove('dc-highlight'); });
+    // highlight matching cards
+    var cards = document.querySelectorAll('.dive-card');
+    cards.forEach(function(c) {
+      var idx = parseInt(c.getAttribute('data-idx'));
+      if (caiMeets[idx].meet.indexOf(meetKey) !== -1 || meetKey.indexOf(caiMeets[idx].meet) !== -1) {
+        c.classList.add('dc-highlight');
+        // scroll card into view within the deck
+        setTimeout(function(){ c.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'}); }, 300);
+      }
+    });
+    // remove highlight after 2s
+    setTimeout(function(){
+      document.querySelectorAll('.dive-card').forEach(function(c){ c.classList.remove('dc-highlight'); });
+    }, 2500);
+  }, 600);
+}
+
+</script>
+
+<footer>
+  <div id="footerLinks" style="display:flex;gap:1.5rem;align-items:center;"></div>
+  <span class="footer-note">2026</span>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var igSVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>';
+  var ttSVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>';
+  var emailSVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>';
+
+  var heroCta = document.getElementById('heroCta');
+  var footerLinks = document.getElementById('footerLinks');
+
+  if (CAI_CONFIG.showSocials) {
+    heroCta.innerHTML =
+      '<a href="'+CAI_CONFIG.instagram+'" target="_blank" class="hero-cta" style="gap:0.5rem;">'+igSVG+' Instagram</a>'+
+      '<a href="'+CAI_CONFIG.tiktok+'" target="_blank" class="hero-cta hero-cta--dark" style="gap:0.5rem;">'+ttSVG+' TikTok</a>';
+    footerLinks.innerHTML =
+      '<a href="'+CAI_CONFIG.instagram+'" target="_blank" class="footer-name" style="text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=\'var(--navy)\'" onmouseout="this.style.color=\'var(--muted)\'">@caitobin</a>'+
+      '<a href="'+CAI_CONFIG.tiktok+'" target="_blank" class="footer-name" style="text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=\'var(--navy)\'" onmouseout="this.style.color=\'var(--muted)\'">@cai_tobin</a>';
+  } else {
+    heroCta.innerHTML =
+      '<a href="mailto:'+CAI_CONFIG.email+'" class="hero-cta" style="gap:0.5rem;">'+emailSVG+' Get in Touch</a>';
+    footerLinks.innerHTML =
+      '<a href="mailto:'+CAI_CONFIG.email+'" class="footer-name" style="text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=\'var(--navy)\'" onmouseout="this.style.color=\'var(--muted)\'">'+CAI_CONFIG.email+'</a>';
+  }
+});
+</script>
+<script>
+// ── Hero load animations ──
+window.addEventListener('load', function() {
+  document.querySelectorAll('.hero-animate').forEach(function(el) {
+    el.classList.add('ran');
+  });
+});
+
+// ── Scroll reveal ──
+var revealObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+// Add reveal to disciplines, pb-cards, tl-meet, tl-year, stat items
+document.querySelectorAll('.discipline, .pb-card, .tl-meet, .tl-year, #cards .section-label, #cards .section-sublabel, .cards-filter-bar, #cardsFilterSummary').forEach(function(el) {
+  el.classList.add('reveal');
+  revealObserver.observe(el);
+});
+
+// ── Staggered card reveal ──
+var cardObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      cardObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+
+function caiObserveCards() {
+  document.querySelectorAll('.dive-card').forEach(function(card, i) {
+    card.style.transitionDelay = Math.min(i % 6, 5) * 0.055 + 's';
+    cardObserver.observe(card);
+  });
+}
+
+// Re-observe cards after each render
+var originalRender = caiRender;
+caiRender = function() {
+  originalRender();
+  setTimeout(caiObserveCards, 0);
+};
+caiRender();
+</script>
+
+</body>
+</html>

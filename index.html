@@ -720,6 +720,7 @@ nav a:hover { color: var(--navy); }
     inset: 0;
     background: linear-gradient(to right, rgba(15,31,61,0.82) 0%, rgba(15,31,61,0.35) 100%);
     z-index: 3;
+    pointer-events: none;
   }
 
   /* Text content over the photo */
@@ -731,6 +732,15 @@ nav a:hover { color: var(--navy); }
     padding: 3rem 1.5rem 2.5rem;
     min-height: 100vh;
     justify-content: flex-end;
+    /* This box is min-height:100vh but only has visible content near the
+       bottom — without this, its invisible upper area sits above the hero
+       video/play button (z-index 3) and swallows every tap meant for them. */
+    pointer-events: none;
+  }
+
+  /* Re-enable taps only on the actual interactive elements inside hero-left */
+  #heroCta {
+    pointer-events: auto;
   }
 
   .hero-tag { color: rgba(255,255,255,0.7); }
@@ -1519,21 +1529,26 @@ var CAI_CONFIG = {
   </div>
   <div class="sb-divider hero-animate" style="animation-delay:0.68s">✦</div>
   <div class="sb-item hero-animate" style="animation-delay:0.78s">
-    <div class="sb-num">3rd</div>
-    <div class="sb-label">Nationals 1m 2025</div>
+    <div class="sb-num">1st</div>
+    <div class="sb-label">Nationals 1m 2026</div>
   </div>
   <div class="sb-divider hero-animate" style="animation-delay:0.91s">✦</div>
   <div class="sb-item hero-animate" style="animation-delay:1.01s">
     <div class="sb-num">2nd</div>
-    <div class="sb-label">Nationals Platform 2024</div>
+    <div class="sb-label">Nationals 3m 2026</div>
   </div>
   <div class="sb-divider hero-animate" style="animation-delay:1.14s">✦</div>
   <div class="sb-item hero-animate" style="animation-delay:1.24s">
-    <div class="sb-num">205</div>
-    <div class="sb-label">PB · 3m Springboard</div>
+    <div class="sb-num">3rd</div>
+    <div class="sb-label">Nationals Platform 2026</div>
   </div>
   <div class="sb-divider hero-animate" style="animation-delay:1.37s">✦</div>
   <div class="sb-item hero-animate" style="animation-delay:1.47s">
+    <div class="sb-num">215</div>
+    <div class="sb-label">PB · 3m Springboard</div>
+  </div>
+  <div class="sb-divider hero-animate" style="animation-delay:1.6s">✦</div>
+  <div class="sb-item hero-animate" style="animation-delay:1.7s">
     <div class="sb-num">7+</div>
     <div class="sb-label">Years Competing</div>
   </div>
@@ -1768,6 +1783,41 @@ var CAI_CONFIG = {
         var anyPlaying = discVideos.some(function(v) { return !v.paused; });
         if (!anyPlaying) activateTVMode();
       }, 800);
+    }
+
+    // ── Mobile safety net ──
+    // Some phones/network states (e.g. Low Data Mode, certain Safari builds)
+    // silently block the initial JS-triggered play() with no error and no
+    // 'canplay'/'playing' event ever firing. Previously that left the section
+    // permanently invisible on touch devices with zero recovery path. Fix:
+    // 1) reveal the frame after 2s regardless, so at worst you see a still frame
+    //    instead of a blank hole.
+    // 2) retry play() on the very first tap/scroll, since a user gesture
+    //    reliably unblocks autoplay restrictions on iOS.
+    if (isTouchDevice) {
+      setTimeout(function() {
+        discVideos.forEach(function(v, i) {
+          disciplines[i].classList.add('vid-ready');
+        });
+      }, 2000);
+
+      var retriedPlay = false;
+      function retryDiscVideoPlay() {
+        if (retriedPlay) return;
+        retriedPlay = true;
+        discVideos.forEach(function(v, i) {
+          if (v.paused) {
+            v.play().then(function() {
+              disciplines[i].classList.add('vid-ready');
+              disciplines[i].classList.add('vid-playing');
+            }).catch(function() {});
+          }
+        });
+        window.removeEventListener('touchstart', retryDiscVideoPlay);
+        window.removeEventListener('scroll', retryDiscVideoPlay);
+      }
+      window.addEventListener('touchstart', retryDiscVideoPlay, { passive: true, once: true });
+      window.addEventListener('scroll', retryDiscVideoPlay, { passive: true, once: true });
     }
   }
 })();

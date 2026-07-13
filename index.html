@@ -1790,7 +1790,7 @@ var CAI_CONFIG = {
         <div class="pb-scores">
           <div class="pb-score"><span class="pb-num">95.50</span><span class="pb-dives">3 dives</span></div>
           <div class="pb-score"><span class="pb-num">141.40</span><span class="pb-dives">5 dives</span></div>
-          <div class="pb-score pb-score--top"><span class="pb-num">197.30</span><span class="pb-dives">6 dives</span></div>
+          <div class="pb-score pb-score--top"><span class="pb-num">210.40</span><span class="pb-dives">6 dives</span></div>
         </div>
       </div>
 
@@ -1799,7 +1799,7 @@ var CAI_CONFIG = {
         <div class="pb-scores">
           <div class="pb-score"><span class="pb-num">88.05</span><span class="pb-dives">3 dives</span></div>
           <div class="pb-score"><span class="pb-num">127.80</span><span class="pb-dives">5 dives</span></div>
-          <div class="pb-score pb-score--top"><span class="pb-num">205.40</span><span class="pb-dives">6 dives</span></div>
+          <div class="pb-score pb-score--top"><span class="pb-num">214.65</span><span class="pb-dives">6 dives</span></div>
         </div>
       </div>
 
@@ -1808,7 +1808,7 @@ var CAI_CONFIG = {
         <div class="pb-scores">
           <div class="pb-score"><span class="pb-num">87.55</span><span class="pb-dives">3 dives</span></div>
           <div class="pb-score"><span class="pb-num">151.70</span><span class="pb-dives">5 dives</span></div>
-          <div class="pb-score pb-score--top"><span class="pb-num">197.35</span><span class="pb-dives">6 dives</span></div>
+          <div class="pb-score pb-score--top"><span class="pb-num">206.50</span><span class="pb-dives">6 dives</span></div>
         </div>
       </div>
 
@@ -1822,6 +1822,10 @@ var CAI_CONFIG = {
     <div class="timeline">
 
       <div class="tl-year">2026</div>
+      <div class="tl-meet tl-has-cards" data-meet="NAG Championships 2026" onclick="caiTimelineClick(this)">
+        <div class="tl-name">Swim England Diving NAG Championships <span class="tl-card-hint">→ view cards</span></div>
+        <div class="tl-events tl-national">Open Group C 1m · 3m · Platform</div>
+      </div>
       <div class="tl-meet tl-has-cards" data-meet="SE Region Age Groups 2026" onclick="caiTimelineClick(this)">
         <div class="tl-name">Swim England South East Region Age Groups <span class="tl-card-hint">→ view cards</span></div>
         <div class="tl-events">C Open 1m · 3m · Platform</div>
@@ -1960,6 +1964,39 @@ var CAI_CONFIG = {
 
 <script>
 var caiMeets = [
+  {
+    meet:"NAG Championships 2026",date:"27 Jun 2026",event:"1m SB",score:210.40,rank:"1",rankNum:1,national:true,
+    dives:[
+      {code:"103B",dd:1.7,judges:[7,6,7.5,6.5,6],score:33.15},
+      {code:"201B",dd:1.6,judges:[5.5,5.5,5.5,6,6],score:27.20},
+      {code:"301B",dd:1.7,judges:[6,5,7,6.5,6],score:31.45},
+      {code:"5132D",dd:2.2,judges:[6,6,6,5,6],score:39.60},
+      {code:"403C",dd:2.2,judges:[7,6,7,6,6],score:41.80},
+      {code:"105C",dd:2.4,judges:[5.5,5,5.5,5,4.5],score:37.20}
+    ]
+  },
+  {
+    meet:"NAG Championships 2026",date:"26 Jun 2026",event:"3m SB",score:214.65,rank:"2",rankNum:2,national:true,
+    dives:[
+      {code:"403B",dd:2.1,judges:[6.5,6.5,6,6,6.5],score:39.90},
+      {code:"103B",dd:1.6,judges:[6,6,5.5,5,5.5],score:27.20},
+      {code:"5231D",dd:2.0,judges:[7,6.5,6,6,6],score:37.00},
+      {code:"201B",dd:1.8,judges:[6,6.5,6,6,5],score:32.40},
+      {code:"5132D",dd:2.1,judges:[5.5,4.5,5.5,5,5],score:32.55},
+      {code:"105B",dd:2.4,judges:[7,6.5,6,6,6.5],score:45.60}
+    ]
+  },
+  {
+    meet:"NAG Championships 2026",date:"25 Jun 2026",event:"PF",score:206.50,rank:"3",rankNum:3,national:true,
+    dives:[
+      {code:"103B",dd:1.6,judges:[7,6.5,7,6.5,6],score:32.00},
+      {code:"403B",dd:2.1,judges:[6.5,6.5,6.5,6,6.5],score:40.95},
+      {code:"201B",dd:1.6,judges:[6,6.5,6.5,6,5.5],score:29.60},
+      {code:"301B",dd:1.7,judges:[6,6,6.5,6.5,6],score:31.45},
+      {code:"5132D",dd:2.2,judges:[5.5,5,5.5,5,4.5],score:34.10},
+      {code:"105B",dd:2.4,judges:[5.5,5.5,6,5,5],score:38.40}
+    ]
+  },
   {
     meet:"SE Region Age Groups 2026",date:"3 May 2026",event:"1m SB",score:197.30,rank:"1",rankNum:1,national:false,
     dives:[
